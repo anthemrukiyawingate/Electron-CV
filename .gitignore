@@ -1,0 +1,35 @@
+# Source-only release policy: Build owns removal of already tracked artifacts.
+# Matching tracked files are rejected by tests/test_release_hygiene.py.
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg-info
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+.uv-cache/
+.ipynb_checkpoints/
+.coverage
+.coverage.*
+htmlcov/
+.venv/
+venv/
+env/
+.tox/
+.nox/
+node_modules/
+build/
+dist/
+out/
+artifacts/
+runtime/
+test-results/
+playwright-report/
+.godot/
+Binaries/
+Intermediate/
+DerivedDataCache/
+Saved/
+.DS_Store

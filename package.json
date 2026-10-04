@@ -1,0 +1,41 @@
+{
+  "name": "voltforge-plato",
+  "productName": "Plato",
+  "version": "1.0.0",
+  "description": "VoltForge's sandboxed physical-shadow telemetry dashboard",
+  "main": "dist/main.js",
+  "private": true,
+  "author": "VoltForge contributors",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "check": "tsc -p tsconfig.main.json && tsc -p tsconfig.renderer.json && tsc -p tsconfig.tests.json && npm run check:demos",
+    "test": "npm run test:unit",
+    "test:unit": "node --import tsx --test tests/core/*.test.ts",
+    "test:electron": "npm run build && playwright test -c playwright.electron.config.ts",
+    "build": "node scripts/build.mjs",
+    "start": "npm run build && electron-forge start",
+    "package": "npm run check && npm run build && electron-forge package",
+    "make": "npm run check && npm run build && electron-forge make",
+    "telemetry:simulate": "node --import tsx scripts/telemetry-simulator.ts",
+    "test:docs": "playwright test -c playwright.demo.config.ts",
+    "test:static": "node --test tests/demo-red.test.mjs",
+    "check:delivery": "python3 scripts/check-delivery.py",
+    "check:demos": "node scripts/check-demos.mjs"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "8.0.1",
+    "@electron-forge/maker-zip": "8.0.1",
+    "@electron-forge/shared-types": "8.0.1",
+    "@playwright/test": "1.63.0",
+    "@types/node": "24.13.1",
+    "@types/ws": "8.18.2",
+    "electron": "44.5.1",
+    "esbuild": "0.28.2",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "ws": "8.22.0"
+  }
+}

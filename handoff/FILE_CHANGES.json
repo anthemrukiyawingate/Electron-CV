@@ -1,0 +1,35 @@
+{
+  "repository": "Electron-CV",
+  "baseline_commit": "cd4e6a47d434845c328ba886b67ef790e9af344e",
+  "add": [
+    ".gitignore",
+    "handoff/AGENT_PROTOCOL.md",
+    "handoff/BACKLOG.md",
+    "handoff/DEVOPS_HANDOFF.md",
+    "handoff/FILE_CHANGES.json",
+    "handoff/INTAKE_RETURN_2.md",
+    "handoff/TRACKED_PATHS_TO_REMOVE.txt",
+    "handoff/VALIDATION.md",
+    "playwright.demo.config.ts",
+    "playwright.electron.config.ts",
+    "scripts/release_hygiene.py",
+    "tests/test_release_hygiene.py"
+  ],
+  "modify": [
+    "Projects/mini_projects/README.md",
+    "README.md",
+    "scripts/agent-tasks.json",
+    "scripts/check-delivery.py",
+    "tests/test_curriculum.py",
+    "tests/test_delivery.py"
+  ],
+  "remove": [
+    "scripts/__pycache__/agent_harness.cpython-314.pyc",
+    "scripts/__pycache__/check-delivery.cpython-314.pyc",
+    "scripts/__pycache__/notebook_support.cpython-314.pyc",
+    "scripts/__pycache__/run-notebooks.cpython-314.pyc",
+    "tests/__pycache__/test_curriculum.cpython-314.pyc",
+    "tests/__pycache__/test_delivery.cpython-314.pyc"
+  ],
+  "vcs_changes_performed": false
+}

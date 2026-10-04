@@ -1,0 +1,264 @@
+<!doctype html>
+<!-- [CAPSTONE INTEGRATION TARGET] This standalone engine mock teaches the Main & Renderer boundary used in the native Plato dashboard. All processes, packets, and hardware are simulated. -->
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#0D1117"><meta name="description" content="VoltForge — an interactive Electron learning laboratory. Explore isolated processes, secure context bridges, asynchronous IPC, and cyber-physical telemetry."><title>VoltForge · Architecture Laboratory</title><style>
+:root{color-scheme:dark;--bg:#0d1117;--panel:#111720;--panel-hi:#151d28;--line:#25313d;--muted:#90a0b2;--text:#e8eef4;--cyan:#70f4d2;--purple:#b498ff;--red:#ff879b;--yellow:#f7ce83;--mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;--sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14px;line-height:1.55}button,input,textarea{font:inherit}button,a,input,textarea{touch-action:manipulation}button{cursor:pointer}a{color:inherit;text-decoration:none}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--cyan);outline-offset:4px}button{border:1px solid var(--line);background:#18212d;color:var(--text);border-radius:7px;padding:10px 13px;transition:background .18s,transform .18s}button:hover{background:#253446}button:active{transform:translateY(1px)}button:disabled{opacity:.45;cursor:not-allowed}.mono{font-family:var(--mono)}.muted{color:var(--muted)}.cyan{color:var(--cyan)}.purple{color:var(--purple)}.small{font-size:11px}.skip{position:fixed;left:12px;top:-80px;background:var(--cyan);color:var(--bg);padding:12px;z-index:10}.skip:focus{top:12px}.topbar{height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;border-bottom:1px solid var(--line);background:#10151d;gap:20px}.brand{display:flex;align-items:center;gap:11px;font-size:21px;font-weight:750;letter-spacing:-.7px}.brandmark{width:30px;height:34px;color:var(--cyan)}.brand-sub{font-size:10px;letter-spacing:2px;color:#9baabb;font-weight:500;margin-left:12px;padding-left:16px;border-left:1px solid var(--line)}.top-meta{display:flex;align-items:center;gap:26px;font-family:var(--mono);font-size:10px;letter-spacing:.6px}.online{display:flex;align-items:center;gap:8px;color:var(--cyan)}.dot{width:6px;height:6px;background:currentColor;border-radius:50%;box-shadow:0 0 12px currentColor}.tag{border:1px solid #324354;padding:4px 8px;border-radius:4px;color:#aebfd0;font-family:var(--mono);font-size:10px;white-space:nowrap}.workspace{display:grid;grid-template-columns:228px minmax(0,1fr);min-height:calc(100vh - 76px)}.sidebar{border-right:1px solid var(--line);padding:31px 17px 24px;display:flex;flex-direction:column;background:#10151d}.side-label{font:10px var(--mono);letter-spacing:1.9px;color:#8192a5;padding:0 13px;margin-bottom:17px}.phase-link{display:flex;align-items:center;gap:11px;padding:14px 12px;margin:5px 0;border:1px solid transparent;border-radius:7px;color:#8e9cae}.phase-link:hover{color:var(--text);background:#18212a}.phase-link.active{background:#162824;border-color:#315249;color:var(--cyan)}.phase-number{font-family:var(--mono);font-size:12px;align-self:flex-start;margin-top:2px}.phase-name{font-size:12px;font-weight:600;line-height:1.4}.phase-name small{display:block;font-size:10px;color:#8494a6;font-weight:400;margin-top:4px}.phase-link.active .phase-name small{color:#8cb6aa}.phase-link .arrow{margin-left:auto;font-size:15px}.side-rule{height:1px;background:var(--line);margin:22px 12px}.project-card{padding:16px 13px;background:linear-gradient(150deg,#1d2134,#141b26);border:1px solid #303349;border-radius:8px;margin-top:8px}.project-card .project-icon{color:var(--purple);font-size:24px}.project-card strong{display:block;font-size:12px;margin:7px 0}.project-card p{font-size:11px;color:#a0adc0;line-height:1.6;margin:5px 0 12px}.project-card a{font-size:11px;color:var(--purple)}.side-bottom{margin-top:auto;padding:45px 12px 0;color:#8192a5;font-family:var(--mono);font-size:9px;line-height:2}.side-bottom span{color:var(--cyan)}.content{padding:31px 35px 25px;min-width:0;max-width:1850px;width:100%;margin:0 auto}.breadcrumb{font:10px var(--mono);letter-spacing:.7px;color:#7e90a5;display:flex;align-items:center;gap:10px;margin-bottom:20px}.breadcrumb b{color:#bcc8d6;font-weight:400}.titlebar{display:flex;align-items:center;justify-content:space-between;gap:24px}.eyebrow{font:10px var(--mono);letter-spacing:2px;color:var(--cyan);margin-bottom:10px}.eyebrow .slash{color:#637787;margin-right:8px}h1{font-size:clamp(31px,3vw,48px);line-height:1.12;font-weight:650;letter-spacing:-1.8px;margin:0 0 14px}.intro{max-width:655px;color:#95a6b8;font-size:13px;line-height:1.8;margin:0}.reset{align-self:flex-start;white-space:nowrap;font-size:11px;background:transparent;margin-top:5px;color:#acbac9}.reset span{font-size:16px;margin-right:5px}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:25px 0 21px}.stat{border:1px solid var(--line);border-radius:8px;background:#111720;padding:13px 16px;position:relative;overflow:hidden}.stat::after{content:"";position:absolute;width:3px;height:23px;right:0;top:17px;background:var(--stat-color,var(--cyan));opacity:.7}.stat-label{font:9px var(--mono);color:#98a8ba;letter-spacing:1.2px}.stat-value{display:flex;align-items:baseline;gap:8px;font-size:23px;font-weight:500;margin-top:6px;line-height:1.2;letter-spacing:-.6px}.stat-value small{font:10px var(--mono);color:#778ba0;letter-spacing:0}.lab-grid{display:grid;grid-template-columns:minmax(0,1fr) 284px;gap:17px;align-items:start}.panel{border:1px solid var(--line);border-radius:9px;background:#101720;overflow:hidden}.panel-head{height:48px;padding:0 17px;display:flex;align-items:center;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);background:#131b25}.panel-title{font-size:11px;font-weight:550;display:flex;align-items:center;gap:9px}.panel-title svg{width:14px;height:14px;color:#91a4b8}.panel-tools{display:flex;align-items:center;gap:9px;color:#7c90a5;font:9px var(--mono)}.live-pill{display:flex;align-items:center;gap:6px;font:9px var(--mono);letter-spacing:.8px;color:var(--cyan)}.live-pill .dot{width:4px;height:4px}.viewport{height:354px;position:relative;background:radial-gradient(ellipse at 25% 45%,#122a2b55,transparent 55%),radial-gradient(ellipse at 85% 55%,#29214055,transparent 50%),#0e151e}.viewport canvas{display:block;width:100%;height:100%}.viewport-caption{position:absolute;left:17px;top:17px;pointer-events:none;font:9px var(--mono);letter-spacing:1px;color:#587282}.viewport-corner{position:absolute;right:17px;top:17px;pointer-events:none;font:9px var(--mono);color:#6c7e91}.graph-legend{display:flex;align-items:center;justify-content:center;gap:18px;font:9px var(--mono);color:#8d9bae;position:absolute;bottom:16px;width:100%;pointer-events:none}.legend-dot{display:inline-block;width:5px;height:5px;margin-right:6px;border-radius:50%;background:var(--cyan)}.legend-dot.purple-dot{background:var(--purple)}.legend-dot.gray-dot{background:#4f6072}.stage-foot{display:flex;justify-content:space-between;align-items:center;gap:9px;border-top:1px solid var(--line);padding:10px 17px;font:9px var(--mono);color:#8a9db1;background:#111a24}.stage-foot span:first-child{display:flex;align-items:center;gap:6px}.connection-dot{height:5px;width:5px;border-radius:50%;background:var(--cyan)}.controls{padding:16px}.control-eyebrow{font:9px var(--mono);color:#7c92a7;letter-spacing:1.2px;margin:0 0 8px}.controls h2{font-size:15px;margin:0 0 7px;font-weight:600;letter-spacing:-.2px}.controls p{font-size:11px;color:#94a7ba;margin:0 0 17px;line-height:1.75}.primary{width:100%;display:flex;justify-content:center;align-items:center;gap:8px;background:var(--cyan);color:#102721;border-color:var(--cyan);font-size:11px;font-weight:650;padding:11px}.primary:hover{background:#a0ffe6;color:#102721}.control-separator{height:1px;background:var(--line);margin:19px 0}.action{width:100%;text-align:left;font-size:10px;padding:10px 11px;display:flex;align-items:center;justify-content:space-between;margin-top:8px;background:#17212d}.action span{color:var(--muted)}.contract{border:1px solid #2c3c4e;background:#101924;border-radius:5px;padding:11px;margin-top:16px;font:9px/1.9 var(--mono);color:#8ba0b6}.contract .property{color:#abc1d7}.contract .value{color:var(--cyan)}.result{margin-top:15px;padding:9px 10px;border-left:2px solid var(--cyan);background:#162821;color:#a2dbc6;font:9px/1.8 var(--mono);overflow-wrap:anywhere;min-height:52px}.result[data-state="error"]{border-left-color:var(--red);background:#2b1e28;color:#f0a5b1}.result[data-state="pending"]{border-left-color:var(--yellow);background:#28241e;color:var(--yellow)}.log-panel{margin-top:17px}.terminal-head{height:39px}.terminal-title{font:10px var(--mono);color:#9bafc3}.terminal-title span{color:#51687f;margin-right:7px}.log{padding:12px 15px;height:118px;overflow:auto;font:9px/2 var(--mono);background:#0d141d}.log-line{display:flex;gap:10px;white-space:pre-wrap;overflow-wrap:anywhere}.log-time{color:#6f849a;flex-shrink:0}.log-type{color:var(--cyan);width:40px;flex-shrink:0}.log-line.error .log-type{color:var(--red)}.log-line.warn .log-type{color:var(--yellow)}.log-message{color:#9cacc0;min-width:0}.log-message strong{font-weight:400;color:#d0dce8}.terminal-count{font:9px var(--mono);color:#6b8198}.learn-heading{margin:23px 0 12px;display:flex;align-items:center;justify-content:space-between}.learn-heading h2{font-size:12px;font-weight:550;margin:0}.learn-heading span{font:9px var(--mono);color:#6f869f}.insights{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.insight{border:1px solid var(--line);border-radius:7px;padding:15px 16px;background:#111822;min-height:105px}.insight-number{font:9px var(--mono);color:var(--cyan);margin-bottom:8px}.insight h3{font-size:11px;font-weight:550;margin:0 0 6px}.insight p{font-size:10px;line-height:1.75;color:#8b9eb3;margin:0}.footer{margin-top:25px;display:flex;align-items:center;justify-content:space-between;gap:15px;font:9px var(--mono);color:#6e8399}.footer a{color:#9eb4c9}.footer .chevron{color:var(--cyan);margin-left:6px}.status-note{display:flex;align-items:center;gap:7px}.status-note .dot{width:4px;height:4px;color:#60788f}.payload-label{font:9px var(--mono);color:#9eb1c3;display:block;margin:13px 0 7px}.payload{width:100%;height:113px;resize:vertical;min-height:80px;max-height:200px;background:#0b121b;color:#b5decf;border:1px solid #324454;border-radius:5px;padding:10px;font:11px/1.8 var(--mono)}.presets{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0 12px}.preset{font:8px var(--mono);padding:5px 6px;border-radius:4px;color:#a0b2c6}.range-label{font:10px var(--mono);color:#a1b4c8;display:flex;justify-content:space-between;margin:16px 0 5px}.range-label output{color:var(--cyan)}input[type="range"]{width:100%;accent-color:var(--cyan);margin:5px 0 10px}.deadline{display:flex;justify-content:space-between;font:9px var(--mono);color:#758ba1;margin-bottom:14px}.request-list{max-height:145px;overflow:auto;margin-top:12px}.request-row{display:flex;justify-content:space-between;gap:7px;font:9px var(--mono);padding:8px 0;border-bottom:1px solid #22303d}.request-row[data-state="pending"] span:last-child{color:var(--yellow)}.request-row[data-state="fulfilled"] span:last-child{color:var(--cyan)}.request-row[data-state="rejected"] span:last-child,.request-row[data-state="timeout"] span:last-child{color:var(--red)}.telemetry-item{display:flex;justify-content:space-between;gap:10px;font:10px var(--mono);padding:8px 0;border-bottom:1px solid #22303d}.telemetry-item span{color:#8aa0b4}.telemetry-item b{font-weight:400;color:var(--cyan)}.hardware-state{display:flex;align-items:center;justify-content:space-between;padding:9px 10px;background:#142822;border:1px solid #284b3d;border-radius:5px;margin:12px 0;font:9px var(--mono);color:var(--cyan)}.hardware-state[data-state="error"]{color:var(--red);background:#2b1c26;border-color:#593140}.hardware-state[data-state="stale"]{color:var(--yellow);background:#2a261e;border-color:#5d4d2b}.sim-note{font:9px/1.7 var(--mono);color:#7c8fa3;padding-top:10px}.mobile-phases{display:none}
+@media(min-width:1700px){.content{padding:40px 48px}.viewport{height:455px}.lab-grid{grid-template-columns:minmax(0,1fr) 324px}.controls{padding:22px}.stats{margin-top:29px}.stat{padding:17px 20px}.stat-value{font-size:28px}.log{height:125px}.insight{padding:20px}.intro{font-size:14px}.insight p{font-size:12px}.insight h3{font-size:13px}}
+@media(max-width:1200px){.workspace{grid-template-columns:195px minmax(0,1fr)}.sidebar{padding-left:11px;padding-right:11px}.content{padding:27px 23px}.lab-grid{grid-template-columns:minmax(0,1fr) 260px}.topbar{padding:0 24px}.brand-sub{display:none}.phase-name{font-size:11px}.viewport{height:352px}.graph-legend{gap:9px;font-size:8px}.stat{padding:12px}.stat-label{font-size:8px;letter-spacing:.5px}}
+@media(max-width:1020px){.workspace{grid-template-columns:165px minmax(0,1fr)}.phase-link{padding:12px 8px;gap:8px}.phase-link .arrow{display:none}.sidebar{padding-left:7px;padding-right:7px}.content{padding:25px 20px}.lab-grid{grid-template-columns:1fr}.controls{display:grid;grid-template-columns:1fr 1fr;gap:0 22px}.controls>.control-eyebrow,.controls>h2,.controls>p{grid-column:1 / -1}.controls>.control-separator{grid-column:1 / -1;margin:13px 0}.controls>.result{grid-column:1 / -1}.controls>.contract{margin-top:8px}.controls>.payload-label,.controls>.payload,.controls>.presets,.controls>.range-label,.controls>input,.controls>.deadline,.controls>.request-list,.controls>.hardware-state,.controls>.telemetry-item,.controls>.sim-note{grid-column:1 / -1}.controls>.primary{align-self:start}.controls>.action{margin-top:0;margin-bottom:8px;min-height:39px}.stats{gap:8px}.stat-value{font-size:20px}.stat-value small{font-size:8px}.top-meta{gap:12px}.insights{gap:8px}.insight{padding:12px}.footer{font-size:8px}.viewport{height:360px}}
+@media(max-width:700px){.topbar{height:64px;padding:0 19px}.brand{font-size:19px}.brandmark{width:25px}.top-meta>.tag{display:none}.top-meta{font-size:8px}.workspace{display:block}.sidebar{padding:13px 16px;border-right:0;border-bottom:1px solid var(--line)}.sidebar>.side-label,.sidebar>.side-rule,.sidebar>.project-card,.sidebar>.side-bottom{display:none}.sidebar nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}.phase-link{padding:8px 6px;display:block;text-align:center;margin:0}.phase-number{font-size:10px;display:block;margin:0 0 3px}.phase-name{font-size:9px;white-space:nowrap}.phase-name small{display:none}.content{padding:22px 17px}.breadcrumb{font-size:9px;margin-bottom:20px}.titlebar{gap:8px;align-items:flex-start}.reset{font-size:0;padding:8px 10px}.reset span{font-size:15px;margin:0}h1{font-size:34px;max-width:300px;letter-spacing:-1.3px}.eyebrow{font-size:9px}.intro{font-size:11px}.stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:22px 0 17px}.stat{padding:12px 14px}.stat-label{font-size:8px;letter-spacing:.8px}.stat-value{font-size:23px}.stat-value small{font-size:9px}.viewport{height:322px}.panel-head{padding:0 12px}.panel-title{font-size:10px}.panel-tools{font-size:8px}.graph-legend{font-size:7px;gap:10px}.stage-foot{padding:10px 12px;font-size:8px}.stage-foot .resolution-label{display:none}.controls{padding:17px;display:block}.controls>.action{margin:8px 0}.controls>.contract{margin-top:16px}.controls>.control-separator{margin:19px 0}.insights{grid-template-columns:1fr}.insight{padding:15px;display:grid;grid-template-columns:23px 1fr;gap:0 8px;min-height:auto}.insight-number{grid-row:1 / 3}.insight p{grid-column:2}.learn-heading{margin-top:24px}.footer{align-items:flex-start;font-size:8px}.footer>.status-note{max-width:180px}.log{font-size:8px;padding:12px}.log-time{display:none}.log-line{gap:6px}.log-type{width:35px}.viewport-caption,.viewport-corner{font-size:8px;left:12px;top:12px}.viewport-corner{left:auto;right:12px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+</style></head>
+<body><a class="skip" href="#main">Skip to laboratory</a>
+<header class="topbar"><a class="brand" href="../index.html" aria-label="VoltForge home"><svg class="brandmark" viewBox="0 0 30 36" fill="none" aria-hidden="true"><path d="M4 5h9L8 16h8l-5 14L27 12h-9l5-7" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg>voltforge<span class="brand-sub">THE ELECTRON LAB</span></a><div class="top-meta"><span class="online"><i class="dot"></i> SIMULATION ONLINE</span><span class="tag">CURRICULUM v1.0</span></div></header>
+<div class="workspace"><aside class="sidebar"><div class="side-label">YOUR LEARNING PATH</div><nav aria-label="Curriculum phases"><a class="phase-link active" href="../phase-1/index.html" aria-current=page><span class="phase-number">01</span><span class="phase-name">Architecture<small>Main & Renderer</small></span><span class="arrow" aria-hidden="true">›</span></a><a class="phase-link " href="../phase-2/index.html" ><span class="phase-number">02</span><span class="phase-name">Security<small>Context Bridge</small></span><span class="arrow" aria-hidden="true">›</span></a><a class="phase-link " href="../phase-3/index.html" ><span class="phase-number">03</span><span class="phase-name">IPC & Systems<small>Async Communication</small></span><span class="arrow" aria-hidden="true">›</span></a><a class="phase-link " href="../capstone/index.html" ><span class="phase-number">◇</span><span class="phase-name">Capstone<small>Plato Dashboard</small></span><span class="arrow" aria-hidden="true">›</span></a></nav><div class="side-rule"></div><div class="side-label">BUILT TO CONNECT</div><div class="project-card"><div class="project-icon" aria-hidden="true">⌘</div><strong>From pixels to physical.</strong><p>Four chapters. One cyber-physical dashboard. Build your way to Plato.</p><a href="../capstone/index.html">Explore the capstone <span aria-hidden="true">↗</span></a></div><div class="side-bottom"><span>●</span> BROWSER ENGINE MOCK<br>No install. Just experiment.<br>etherwAre · MIT curriculum</div></aside>
+<main class="content" id="main"><div class="breadcrumb"><span>WORKSPACE</span><span aria-hidden="true">/</span><b>ARCHITECTURE</b></div><div class="titlebar"><div><div class="eyebrow"><span class="slash">//</span>PHASE 01 / PROCESS ARCHITECTURE</div><h1>One app. Two worlds.</h1><p class="intro">Meet the two halves of an Electron application. Spawn a window, trace the boundary, and discover why a renderer never gets the keys to your system.</p></div><button class="reset" type="button" id="reset" aria-label="Reset simulation"><span aria-hidden="true">↻</span> Reset simulation</button></div><section class="stats" aria-label="Simulation metrics"><div class="stat" style="--stat-color:var(--cyan)"><div class="stat-label">ACTIVE WINDOWS</div><div class="stat-value"><span id="window-count" data-testid="window-count">01</span><small>sandboxed</small></div></div><div class="stat" style="--stat-color:var(--cyan)"><div class="stat-label">CONTEXT ISOLATION</div><div class="stat-value"><span class="cyan">ON</span><small>enabled</small></div></div><div class="stat" style="--stat-color:var(--purple)"><div class="stat-label">NODE INTEGRATION</div><div class="stat-value"><span class="purple">OFF</span><small>renderer</small></div></div><div class="stat" style="--stat-color:var(--cyan)"><div class="stat-label">FRAME PACING</div><div class="stat-value"><span id="fps">—</span><small>FPS · <span id="frame-time">—</span> ms</small></div></div></section>
+<div class="lab-grid"><div class="lab-main"><section class="panel"><div class="panel-head"><div class="panel-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2" y="3" width="7" height="7" rx="1.5"/><rect x="15" y="14" width="7" height="7" rx="1.5"/><path d="M5 10v7h10M9 6h10v8"/></svg>Process architecture</div><div class="live-pill"><i class="dot"></i><span id="connection-label">ENGINE RUNNING</span></div></div><div class="viewport"><span class="viewport-caption">ENGINE VIEW / 01</span><span class="viewport-corner">SIMULATED ENVIRONMENT</span><canvas id="engine" role="img" aria-label="Simulated Main process, named context bridge, and sandboxed Renderer with no direct operating system access.">Simulated Main process, named context bridge, and sandboxed Renderer with no direct operating system access.</canvas><div class="graph-legend"><span><i class="legend-dot"></i>Privileged process</span><span><i class="legend-dot purple-dot"></i>Sandboxed renderer</span><span><i class="legend-dot gray-dot"></i>OS boundary</span></div></div><div class="stage-foot"><span><i class="connection-dot"></i><span id="engine-status">Isolated process boundary</span></span><span><span class="resolution-label">DRS </span><b id="resolution">100%</b> <span aria-hidden="true">·</span> <span id="motion-label">MEASURED FPS</span></span></div></section>
+<section class="panel log-panel"><div class="panel-head terminal-head"><div class="terminal-title"><span aria-hidden="true">&gt;_</span> event stream</div><div class="panel-tools"><span class="terminal-count" id="log-count">0 events</span><button id="clear-log" type="button" style="font-size:9px;padding:3px 7px;background:transparent" aria-label="Clear event log">Clear</button></div></div><div class="log" id="event-log" role="log" aria-label="Structured simulation event stream" aria-live="polite"></div></section></div>
+<section class="panel"><div class="panel-head"><div class="panel-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2" y="3" width="7" height="7" rx="1.5"/><rect x="15" y="14" width="7" height="7" rx="1.5"/><path d="M5 10v7h10M9 6h10v8"/></svg>Experiment controls</div><span class="panel-tools">01 / 04</span></div><div class="controls"><div class="control-eyebrow">INTERACTIVE SANDBOX</div><h2>You’re in control.</h2><p>Create a simulated native window. Then test what its renderer is allowed to do.</p><button class="primary" id="spawn" type="button"><span aria-hidden="true">＋</span> Spawn window</button><div class="control-separator"></div><div class="control-eyebrow">PROBE THE BOUNDARY</div><button class="action" id="filesystem" type="button">Attempt filesystem access <span aria-hidden="true">↗</span></button><button class="action" id="status" type="button">Request app status <span aria-hidden="true">↗</span></button><div class="contract"><span class="property">contextIsolation</span>: <span class="value">true</span><br><span class="property">nodeIntegration</span>: <span class="purple">false</span><br><span class="property">sandbox</span>: <span class="value">true</span></div><div class="result" id="action-result" data-testid="action-result" role="status" aria-live="polite">READY · Spawn a window to begin.</div></div></section></div>
+<div class="learn-heading"><h2>The architecture, decoded.</h2><span>LEARN BY BREAKING THINGS</span></div><section class="insights" aria-label="Concepts in this simulation"><article class="insight"><div class="insight-number">01 /</div><h3>Main holds the keys</h3><p>One privileged process owns the app lifecycle, native windows, and approved OS capabilities.</p></article><article class="insight"><div class="insight-number">02 /</div><h3>Every window has a boundary</h3><p>Each simulated renderer represents an isolated browser environment for HTML, CSS, and JavaScript.</p></article><article class="insight"><div class="insight-number">03 /</div><h3>Expose capabilities, not power</h3><p>A named bridge returns app status. It never hands the renderer a filesystem or an execution API.</p></article></section><footer class="footer"><span class="status-note"><i class="dot"></i>Simulation only · frame rate depends on your device</span><a href="../phase-2/index.html">Explore the Context Bridge<span class="chevron" aria-hidden="true">→</span></a></footer></main></div><script>
+// [CAPSTONE INTEGRATION TARGET] Browser-only engine mocks teach validated Plato IPC and telemetry boundaries. No privileged access occurs here.
+// @ts-check
+(() => {
+  'use strict';
+  const phase = Number(1);
+  /** @typedef {{ id: string, status: 'pending'|'fulfilled'|'rejected'|'timeout', started: number, finished: number, latency: number, row: HTMLDivElement, timers: number[] }} SimRequest */
+  /** @param {string} id @returns {HTMLElement} */
+  const el = (id) => { const value = document.getElementById(id); if (!value) throw new Error(`Missing element: ${id}`); return value; };
+  const canvas = /** @type {HTMLCanvasElement} */ (el('engine'));
+  const context = canvas.getContext('2d');
+  if (!context) { el('engine-status').textContent = 'Canvas unavailable · controls remain accessible'; }
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  const state = {
+    windows: 1, targetWindows: 1, visualWindows: 1, accepted: 0, rejected: 0, requests: /** @type {SimRequest[]} */ ([]), requestID: 0,
+    connected: true, latency: 600, feed: true, fault: false, lastPacket: performance.now(), packets: 0,
+    shadow: .58, visualShadow: .58, confidence: .94, sceneTime: 0, signal: 0, signalColor: '#70f4d2',
+    scale: 1, lowSamples: 0, highSamples: 0, lastScaleChange: 0, frameCount: 0, sampleStart: performance.now(), fps: 0,
+  };
+  const colors = { cyan: '#70f4d2', purple: '#b498ff', muted: '#778da3', text: '#dbe8f3', red: '#ff879b' };
+  const timers = new Set();
+  const monoFont = getComputedStyle(document.documentElement).getPropertyValue('--mono');
+  let logCount = 0, sequence = 0, raf = 0, previous = performance.now(), lastTelemetry = 0, width = 1, height = 1;
+  /** @param {string} type @param {string} event @param {Record<string, unknown>} [detail] */
+  function log(type, event, detail = {}) {
+    const record = { timestamp: new Date().toISOString(), level: type, event, ...detail };
+    const row = document.createElement('div'); row.className = `log-line ${type}`;
+    const time = document.createElement('span'); time.className = 'log-time'; time.textContent = record.timestamp.slice(11, 19);
+    const level = document.createElement('span'); level.className = 'log-type'; level.textContent = type.toUpperCase();
+    const message = document.createElement('span'); message.className = 'log-message'; message.textContent = JSON.stringify({ event, ...detail });
+    row.append(time, level, message); el('event-log').prepend(row);
+    while (el('event-log').children.length > 40) el('event-log').lastElementChild?.remove();
+    el('log-count').textContent = `${++logCount} events`;
+  }
+  /** @param {string} text @param {'ok'|'error'|'pending'} [kind] */
+  function result(text, kind = 'ok') {
+    el('action-result').textContent = text; el('action-result').dataset.state = kind;
+    state.signal = 1; state.signalColor = kind === 'error' ? colors.red : colors.cyan;
+  }
+  /** @param {() => void} callback @param {number} delay */
+  function later(callback, delay) { const timer = window.setTimeout(() => { timers.delete(timer); callback(); }, delay); timers.add(timer); return timer; }
+  /** @param {string} id @param {() => void} fn */
+  function on(id, fn) { document.getElementById(id)?.addEventListener('click', fn); }
+  on('reset', () => location.reload());
+  on('clear-log', () => { el('event-log').replaceChildren(); logCount = 0; el('log-count').textContent = '0 events'; });
+  if (phase === 1) {
+    on('spawn', () => {
+      if (state.windows >= 6) { result('WINDOW_LIMIT · Maximum 6 simulated windows. Reset to start again.', 'error'); log('warn', 'window.limit', { limit: 6 }); return; }
+      state.windows++; state.targetWindows = state.windows;
+      el('window-count').textContent = String(state.windows).padStart(2, '0');
+      result(`WINDOW_CREATED · Renderer ${state.windows} started in its own sandbox.`);
+      log('info', 'window.created', { renderer: state.windows, contextIsolation: true, nodeIntegration: false, sandbox: true });
+    });
+    on('filesystem', () => { result('ACCESS_DENIED · Renderer has no Node.js filesystem API. Request a named Main capability.', 'error'); log('error', 'renderer.fs.denied', { code: 'ACCESS_DENIED', nodeIntegration: false }); });
+    on('status', () => { result(`STATUS_OK · Named bridge returned { windows: ${state.windows}, platform: "simulated" }.`); log('info', 'app.status.fulfilled', { windows: state.windows, platform: 'simulated' }); });
+  }
+  if (phase === 2) {
+    const editor = /** @type {HTMLTextAreaElement} */ (el('payload'));
+    /** @type {Record<string,string>} */
+    const presets = { safe: '{"operation":"getStatus"}', unknown: '{"operation":"readFile","path":"/etc/passwd"}', injection: '{"operation":"getStatus","code":"process.exit()"}', malformed: '<script>alert("escape")<\/script>' };
+    document.querySelectorAll('[data-preset]').forEach(button => button.addEventListener('click', () => { editor.value = presets[/** @type {HTMLElement} */ (button).dataset.preset ?? 'safe']; editor.focus(); }));
+    on('send-payload', () => {
+      let reason = '';
+      try {
+        if (editor.value.length > 512) throw new Error('Payload exceeds the 512-character limit.');
+        const payload = JSON.parse(editor.value);
+        if (!payload || typeof payload !== 'object' || Array.isArray(payload)) throw new Error('Expected a JSON object.');
+        const keys = Object.keys(payload);
+        if (keys.length !== 1 || keys[0] !== 'operation') throw new Error('Exact schema requires only the operation field.');
+        if (payload.operation !== 'getStatus') throw new Error('Operation is not in the allowlist: getStatus.');
+      } catch (error) { reason = error instanceof Error ? error.message : 'Invalid payload.'; }
+      if (reason) { state.rejected++; el('rejected-count').textContent = String(state.rejected).padStart(2,'0'); result(`REJECTED · ${reason}`, 'error'); log('error','bridge.rejected',{code:'INVALID_PAYLOAD',reason}); }
+      else { state.accepted++; el('accepted-count').textContent = String(state.accepted).padStart(2,'0'); result('ACCEPTED · Main returns { status: "ready" }. Your payload is data; it is never executed.'); log('info','bridge.accepted',{operation:'getStatus',result:{status:'ready'}}); }
+    });
+  }
+  if (phase === 3) {
+    const latency = /** @type {HTMLInputElement} */ (el('latency'));
+    latency.addEventListener('input', () => { state.latency = Number(latency.value); el('latency-output').textContent = `${state.latency} ms`; });
+    /** @param {SimRequest} request @param {'fulfilled'|'rejected'|'timeout'} status @param {string} reason */
+    function settle(request, status, reason) {
+      if (request.status !== 'pending') return;
+      request.status = status; request.finished = performance.now();
+      for (const timer of request.timers) { clearTimeout(timer); timers.delete(timer); }
+      request.row.dataset.state = status; const statusLabel = request.row.lastElementChild; if (statusLabel) statusLabel.textContent = status;
+      updateCounts(); result(`${request.id} · ${status.toUpperCase()} · ${reason}`, status === 'fulfilled' ? 'ok' : 'error');
+      log(status === 'fulfilled' ? 'info' : 'error', `ipc.${status}`, { id: request.id, elapsedMs: Math.round(request.finished-request.started), reason });
+    }
+    function updateCounts() {
+      el('pending-count').textContent = String(state.requests.filter(request => request.status === 'pending').length).padStart(2,'0');
+      el('fulfilled-count').textContent = String(state.requests.filter(request => request.status === 'fulfilled').length).padStart(2,'0');
+    }
+    on('invoke', () => {
+      if (state.requests.filter(request => request.status === 'pending').length >= 5) { result('QUEUE_FULL · Five pending requests maximum. Wait for a reply or timeout.', 'error'); log('warn','ipc.queue_full',{limit:5}); return; }
+      const id = `vf-${String(++state.requestID).padStart(4,'0')}`;
+      const row = document.createElement('div'); row.className = 'request-row'; row.dataset.state = 'pending';
+      const label = document.createElement('span'); label.textContent = id;
+      const status = document.createElement('span'); status.textContent = 'pending'; row.append(label,status);
+      el('request-history').prepend(row);
+      /** @type {SimRequest} */
+      const request = { id, status: 'pending', started: performance.now(), finished: 0, latency: state.latency, row, timers: [] };
+      state.requests.push(request);
+      while (state.requests.length > 20) { const firstSettled = state.requests.findIndex(item => item.status !== 'pending'); if (firstSettled < 0) break; state.requests[firstSettled].row.remove(); state.requests.splice(firstSettled,1); }
+      updateCounts(); log('info','ipc.invoke',{id,operation:'getStatus',deadlineMs:1800,latencyMs:request.latency});
+      if (!state.connected) { settle(request,'rejected','Main is disconnected. Reconnect and retry.'); return; }
+      result(`${id} · PENDING · Waiting for Main with a 1,800 ms deadline.`, 'pending');
+      request.timers.push(later(() => settle(request,'timeout','Deadline exceeded. Late responses are ignored.'),1800));
+      request.timers.push(later(() => settle(request,'fulfilled','Correlated response received from Main.'),request.latency));
+    });
+    on('disconnect', () => {
+      state.connected = !state.connected; el('disconnect').textContent = state.connected ? 'Disconnect Main' : 'Reconnect Main';
+      el('connection-label').textContent = state.connected ? 'BUS CONNECTED' : 'BUS DISCONNECTED';
+      el('engine-status').textContent = state.connected ? 'IPC bus connected' : 'IPC bus disconnected';
+      if (!state.connected) { for (const request of state.requests) settle(request,'rejected','Main disconnected while request was pending.'); }
+      result(state.connected ? 'RECONNECTED · Main is available. Invoke a fresh request.' : 'DISCONNECTED · Pending requests reject immediately.', state.connected ? 'ok' : 'error');
+      log(state.connected ? 'info' : 'warn','ipc.connection',{connected:state.connected});
+    });
+  }
+  if (phase === 4) {
+    on('pause-feed', () => { state.feed = !state.feed; el('pause-feed').textContent = state.feed ? 'Pause feed' : 'Resume feed'; if (state.feed && !state.fault) state.lastPacket = performance.now(); log('info','telemetry.feed',{running:state.feed}); updateTelemetry(performance.now()); });
+    on('fault', () => { state.fault = !state.fault; el('fault').textContent = state.fault ? 'Recover sensor' : 'Inject sensor fault'; if (!state.fault && state.feed) state.lastPacket = performance.now(); log(state.fault ? 'error' : 'info','sensor.health',{status:state.fault ? 'fault' : 'ready'}); result(state.fault ? 'SENSOR_FAULT · Tracking signal lost. Last valid values are retained.' : 'SENSOR_RECOVERED · Awaiting valid frames from the simulated pipeline.', state.fault ? 'error' : 'ok'); updateTelemetry(performance.now()); });
+    const gain = /** @type {HTMLInputElement} */ (el('shadow-gain'));
+    gain.addEventListener('input', () => { state.shadow = Number(gain.value)/100; el('gain-output').textContent = `${gain.value}%`; });
+  }
+  /** @param {number} now */
+  function updateTelemetry(now) {
+    if (phase !== 4) return;
+    const age = Math.max(0, now-state.lastPacket), stale = age > 2500;
+    const status = state.fault ? 'FAULT' : stale ? 'STALE' : state.feed ? 'LIVE' : 'PAUSED';
+    el('feed-status').textContent = status; el('sensor-health').dataset.state = state.fault ? 'error' : stale || !state.feed ? 'stale' : 'ok';
+    el('packet-age').textContent = `${Math.floor(age)} ms`;
+    el('packet-count').textContent = String(state.packets).padStart(3,'0');
+    el('confidence').textContent = `${Math.round(state.confidence*100)}%`;
+    el('shadow-value').textContent = `${Math.round(state.visualShadow*100)}%`;
+    el('engine-status').textContent = state.fault ? 'Sensor fault · last valid frame' : stale ? 'Stale data · last valid frame' : state.feed ? 'Simulated telemetry streaming' : 'Feed paused · holding last frame';
+  }
+  const resizeObserver = new ResizeObserver(() => resize()); resizeObserver.observe(canvas);
+  function resize() {
+    const bounds = canvas.getBoundingClientRect(); width = bounds.width; height = bounds.height;
+    const dpr = Math.min(2, Math.max(1, devicePixelRatio || 1))*state.scale;
+    canvas.width = Math.max(1, Math.round(width*dpr)); canvas.height = Math.max(1,Math.round(height*dpr));
+    context?.setTransform(dpr,0,0,dpr,0,0);
+    el('resolution').textContent = `${Math.round(state.scale*100)}%`;
+  }
+  /** @param {number} x @param {number} y @param {number} w @param {number} h @param {number} radius */
+  function roundedRect(x,y,w,h,radius) { if (!context) return; context.beginPath(); context.roundRect(x,y,w,h,radius); }
+  /** @param {number} x @param {number} y @param {string} text @param {string} color @param {number} size @param {'left'|'center'|'right'} [align] */
+  function label(x,y,text,color,size,align='center') { if(!context) return; context.fillStyle=color; context.font=`${size}px ${monoFont}`; context.textAlign=align; context.fillText(text,x,y); }
+  /** @param {number} x @param {number} y @param {number} size @param {string} color */
+  function cube(x,y,size,color) {
+    if(!context)return; const s=size;
+    context.strokeStyle=color;context.lineWidth=1.5;context.shadowColor=color;context.shadowBlur=14;
+    context.beginPath();context.moveTo(x,y-s);context.lineTo(x+s*.9,y-s*.5);context.lineTo(x+s*.9,y+s*.5);context.lineTo(x,y+s);context.lineTo(x-s*.9,y+s*.5);context.lineTo(x-s*.9,y-s*.5);context.closePath();context.stroke();
+    context.beginPath();context.moveTo(x-s*.9,y-s*.5);context.lineTo(x,y);context.lineTo(x+s*.9,y-s*.5);context.moveTo(x,y);context.lineTo(x,y+s);context.stroke();context.shadowBlur=0;
+  }
+  /** @param {number} x @param {number} y @param {number} size @param {string} color @param {number} count */
+  function browser(x,y,size,color,count=1) {
+    if(!context)return;
+    for(let i=Math.min(3,Math.ceil(count))-1;i>=0;i--){const ox=i*5,oy=-i*6;roundedRect(x-size+ox,y-size*.7+oy,size*2,size*1.4,4);context.fillStyle='#161d2d';context.fill();context.strokeStyle=i===0?color:'#494464';context.lineWidth=1.3;context.stroke();if(i===0){context.beginPath();context.moveTo(x-size,y-size*.7+13);context.lineTo(x+size,y-size*.7+13);context.stroke();for(let d=0;d<3;d++){context.beginPath();context.arc(x-size+7+d*6,y-size*.7+7,1.2,0,Math.PI*2);context.fillStyle=color;context.fill();}label(x,y+12,'</>',color,17);}}
+  }
+  /** @param {number} now */
+  function draw(now) {
+    if(!context)return;
+    const c=context,w=width,h=height,t=reducedMotion.matches?0:now/1000;
+    c.clearRect(0,0,w,h);c.fillStyle='#69849f22';
+    for(let x=18;x<w;x+=22)for(let y=18;y<h;y+=22){c.fillRect(x,y,1,1);}
+    const compact=w<430, scale=compact?.75:1;
+    if(phase===4){ drawShadow(reducedMotion.matches?0:state.sceneTime,w,h); return; }
+    const left=w*.20,right=w*.80,mid=w*.50,cy=h*.46,nodeWidth=Math.min(150,w*.255),nodeHeight=138*scale;
+    // Paths connect distinct privileges. Moving dots represent mock messages, never real IPC.
+    c.strokeStyle='#34475b';c.setLineDash([3,6]);c.lineWidth=1;c.beginPath();c.moveTo(left,cy);c.lineTo(right,cy);c.stroke();c.setLineDash([]);
+    c.strokeStyle='#294c4555';c.lineWidth=1;c.beginPath();c.ellipse(left,cy,Math.min(90,w*.155),Math.min(98,h*.30),0,0,Math.PI*2);c.stroke();c.strokeStyle='#594c7c44';c.beginPath();c.ellipse(right,cy,Math.min(90,w*.155),Math.min(98,h*.30),0,0,Math.PI*2);c.stroke();
+    for(const [x,col] of /** @type {Array<[number,string]>} */ ([[left,colors.cyan],[right,colors.purple]])){
+      roundedRect(x-nodeWidth/2,cy-nodeHeight/2,nodeWidth,nodeHeight,9);c.fillStyle=x===left?'#142422':'#1a1c2e';c.fill();c.strokeStyle=x===left?'#3a6c5d':'#5c4d79';c.lineWidth=1;c.stroke();
+      c.fillStyle=x===left?'#1b3930':'#2a2340';roundedRect(x-nodeWidth/2+9,cy-nodeHeight/2+9,nodeWidth-18,15,3);c.fill();label(x,cy-nodeHeight/2+20,x===left?(phase===1?'PRIVILEGED':'SANDBOXED'):(phase===1?'SANDBOXED':'PRIVILEGED'),col,compact?6:7);
+    }
+    if(phase===1){cube(left,cy-3,25*scale,colors.cyan);browser(right,cy-3,28*scale,colors.purple,state.visualWindows);}
+    else{browser(left,cy-3,28*scale,colors.cyan);cube(right,cy-3,25*scale,colors.purple);}
+    label(left,cy+nodeHeight/2-23,phase===1?'MAIN PROCESS':'RENDERER',colors.text,compact?8:10);
+    label(right,cy+nodeHeight/2-23,phase===1?`RENDERER ${state.windows>1?`×${state.windows}`:'01'}`:'MAIN PROCESS',colors.text,compact?8:10);
+    label(left,cy+nodeHeight/2-9,phase===1?'Node.js + OS APIs':'Browser + named API',colors.muted,compact?6:7);
+    label(right,cy+nodeHeight/2-9,phase===1?'HTML · CSS · JavaScript':'Validate + respond',colors.muted,compact?6:7);
+    c.strokeStyle=state.signal>.1?state.signalColor:'#506374';c.lineWidth=1.3;c.fillStyle='#14202b';c.beginPath();
+    for(let i=0;i<6;i++){const angle=Math.PI/3*i-Math.PI/2;const px=mid+Math.cos(angle)*22*scale,py=cy+Math.sin(angle)*22*scale;i===0?c.moveTo(px,py):c.lineTo(px,py);}c.closePath();c.fill();c.stroke();
+    label(mid,cy+4,phase===2?'✓':'↔',state.signal>.1?state.signalColor:colors.cyan,16);
+    label(mid,cy-40*scale,phase===3?'IPC BUS':'CONTEXT BRIDGE',colors.muted,compact?6:8);
+    label(mid,cy+42*scale,phase===3?'invoke ⇄ handle':'NAMED API ONLY','#627b92',compact?5:7);
+    // The architecture firewall is explicit, rather than implying that a bridge sanitizes code.
+    const by=cy+nodeHeight/2+42;
+    c.strokeStyle='#293f51';c.setLineDash([2,5]);c.beginPath();c.moveTo(w*.07,by);c.lineTo(w*.93,by);c.stroke();c.setLineDash([]);
+    label(left,by+18,phase===1?'FILE SYSTEM · OS':'UNTRUSTED INPUT','#718c9e',compact?6:7);
+    label(right,by+18,phase===1?'NO DIRECT OS ACCESS':'EXACT SCHEMA CHECK','#718c9e',compact?6:7);
+    if(phase===3){
+      for(const request of state.requests){if(request.status!=='pending')continue;const p=Math.min(.92,(now-request.started)/Math.max(request.latency,1));const x=left+(right-left)*p;c.beginPath();c.arc(x,cy,3.5,0,Math.PI*2);c.fillStyle=colors.cyan;c.shadowColor=colors.cyan;c.shadowBlur=12;c.fill();c.shadowBlur=0;label(x,cy-14,request.id,colors.cyan,7);}
+      if(!state.connected){label(mid,by-14,'× DISCONNECTED',colors.red,9);}
+    }else if(!reducedMotion.matches){
+      for(let i=0;i<3;i++){const p=(t*.19+i/3)%1;const x=left+nodeWidth/2+(right-left-nodeWidth)*p;c.beginPath();c.arc(x,cy,2,0,Math.PI*2);c.fillStyle=state.signal>.1?state.signalColor:colors.cyan;c.shadowBlur=9;c.shadowColor=c.fillStyle;c.fill();c.shadowBlur=0;}
+    }
+  }
+  /** @param {number} t @param {number} w @param {number} h */
+  function drawShadow(t,w,h){
+    if(!context)return;const c=context,cx=w*.5,cy=h*.47,r=Math.min(w*.22,h*.29),color=state.fault?colors.red:colors.cyan;
+    c.save();c.translate(cx,cy);c.strokeStyle='#23423e';c.lineWidth=1;
+    for(let i=0;i<4;i++){c.beginPath();c.ellipse(0,r*.7+i*8,r*(1.55-i*.12),r*.33,0,0,Math.PI*2);c.stroke();}
+    const gradient=c.createRadialGradient(0,0,0,0,0,r*1.5);gradient.addColorStop(0,state.fault?'#ff879b14':'#70f4d216');gradient.addColorStop(1,'#0d111700');c.fillStyle=gradient;c.fillRect(-r*1.5,-r*1.5,r*3,r*3);
+    const amplitude=(state.feed&&!state.fault)?Math.sin(t*1.1)*.055:0;
+    for(let i=0;i<18;i++){const y=-r+i*(r*2/17),radius=Math.sqrt(Math.max(0,r*r-y*y))*(.82+state.visualShadow*.2);c.beginPath();c.ellipse(Math.sin(i*.35+t*.3)*r*.07,y,radius,r*.18+amplitude*r,Math.sin(i*.2)*.13,0,Math.PI*2);c.strokeStyle=i%3===0?color:state.fault?'#674350':'#38695d';c.globalAlpha=.5+i/36;c.stroke();}
+    c.globalAlpha=1;
+    for(let i=0;i<4;i++){const angle=t*.3+i*Math.PI/2;const x=Math.cos(angle)*r*1.25,y=Math.sin(angle)*r*.45+r*.75;c.fillStyle=colors.purple;c.beginPath();c.arc(x,y,2,0,Math.PI*2);c.fill();}
+    c.restore();
+    label(w*.15,h*.37,'SHADOW',colors.muted,w<430?7:9);label(w*.15,h*.37+17,`${Math.round(state.visualShadow*100)}%`,color,w<430?14:20);
+    label(w*.85,h*.37,'TRACKING',colors.muted,w<430?7:9);label(w*.85,h*.37+17,state.fault?'LOST':`${Math.round(state.confidence*100)}%`,state.fault?colors.red:colors.purple,w<430?14:20);
+    label(cx,h*.85,'TOUCHDESIGNER / GODOT → OSC / WS → PLATO',colors.muted,w<430?6:8);
+  }
+  /** @param {number} now */
+  function frame(now){
+    const dt=Math.min(.1,Math.max(0,(now-previous)/1000));previous=now;
+    const easing=reducedMotion.matches?1:1-Math.exp(-8*dt);
+    state.visualWindows+=(state.targetWindows-state.visualWindows)*easing;
+    if (state.feed && !state.fault) { state.visualShadow+=(state.shadow-state.visualShadow)*easing; state.sceneTime+=dt; }
+    state.signal=Math.max(0,state.signal-dt*.6);
+    if(phase===4&&now-lastTelemetry>=100){
+      if(state.feed&&!state.fault){state.lastPacket=now;state.packets++;sequence++;state.confidence=.94+Math.sin(now/2100)*.025;if(sequence%50===0)log('info','telemetry.frame',{sequence,source:'simulation',shadow:Number(state.visualShadow.toFixed(3))});}
+      updateTelemetry(now);lastTelemetry=now;
+    }
+    draw(now);state.frameCount++;
+    if(now-state.sampleStart>=1000){
+      state.fps=Math.round(state.frameCount*1000/(now-state.sampleStart));
+      el('fps').textContent=String(state.fps);el('frame-time').textContent=((now-state.sampleStart)/state.frameCount).toFixed(1);el('motion-label').textContent=reducedMotion.matches?'REDUCED MOTION':'MEASURED FPS';
+      // Hysteresis requires sustained pressure; DPR <= 2 and scale is bounded to 60–100%.
+      state.lowSamples=state.fps<48?state.lowSamples+1:0;state.highSamples=state.fps>57?state.highSamples+1:0;
+      if(now-state.lastScaleChange>2500){
+        let next=state.scale;
+        if(state.lowSamples>=3)next=Math.max(.6,state.scale-.1);
+        else if(state.highSamples>=5)next=Math.min(1,state.scale+.1);
+        if(next!==state.scale){state.scale=Math.round(next*10)/10;state.lastScaleChange=now;state.lowSamples=0;state.highSamples=0;resize();}
+      }
+      state.frameCount=0;state.sampleStart=now;
+    }
+    raf=requestAnimationFrame(frame);
+  }
+  document.addEventListener('visibilitychange',()=>{cancelAnimationFrame(raf);if(!document.hidden){previous=performance.now();state.sampleStart=previous;state.frameCount=0;raf=requestAnimationFrame(frame);}});
+  window.addEventListener('pagehide',()=>{cancelAnimationFrame(raf);resizeObserver.disconnect();for(const timer of timers)clearTimeout(timer);timers.clear();});
+  resize();raf=requestAnimationFrame(frame);
+  log('info','simulation.ready',{phase,privilegedAccess:false});
+  log('info','security.policy',{contextIsolation:true,nodeIntegration:false,sandbox:true});
+})();
+</script></body></html>

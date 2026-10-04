@@ -1,0 +1,11 @@
+{
+  "label": "npm-version",
+  "command": [
+    "npm",
+    "--version"
+  ],
+  "started_utc": "2026-10-04T19:19:35.813216+00:00",
+  "elapsed_seconds": 0.06,
+  "exit_code": 0,
+  "transcript": "npm-version.txt"
+}

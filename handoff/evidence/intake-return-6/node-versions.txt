@@ -1,0 +1,25 @@
+VoltForge / Electron-CV — intake return 6
+Source archive: Curriculum-Intake-Return-2.zip
+Archive SHA-256: 94dc2a7c25aea0839ce25a5b319aa69a5aeb95d181185f70872d0ce65997416b
+Working directory: <extracted-release>/Electron-CV
+UTC start: 2026-10-04T19:19:35.751225+00:00
+Command: node -e 'const os=require("node:os");const names=["electron","typescript","@playwright/test","@electron-forge/cli","tsx","esbuild"];console.log(JSON.stringify({node:process.version,platform:process.platform,arch:process.arch,kernel:os.release(),packages:Object.fromEntries(names.map(n=>[n,require(n+"/package.json").version]))},null,2))'
+Environment: NO_COLOR=1; dedicated temporary npm cache; ELECTRON_RUN_AS_NODE=unset; VOLTFORGE_ELECTRON_EXECUTABLE, NODE_PATH and NODE_OPTIONS unset
+
+{
+  "node": "v24.13.1",
+  "platform": "linux",
+  "arch": "x64",
+  "kernel": "6.18.7-76061807-generic",
+  "packages": {
+    "electron": "44.5.1",
+    "typescript": "5.9.3",
+    "@playwright/test": "1.63.0",
+    "@electron-forge/cli": "8.0.1",
+    "tsx": "4.23.15",
+    "esbuild": "0.28.2"
+  }
+}
+
+Exit status: 0
+Elapsed seconds: 0.024

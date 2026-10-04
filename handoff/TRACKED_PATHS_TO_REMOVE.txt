@@ -1,0 +1,6 @@
+scripts/__pycache__/agent_harness.cpython-314.pyc
+scripts/__pycache__/check-delivery.cpython-314.pyc
+scripts/__pycache__/notebook_support.cpython-314.pyc
+scripts/__pycache__/run-notebooks.cpython-314.pyc
+tests/__pycache__/test_curriculum.cpython-314.pyc
+tests/__pycache__/test_delivery.cpython-314.pyc

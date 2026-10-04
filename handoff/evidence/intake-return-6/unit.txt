@@ -1,0 +1,31 @@
+VoltForge / Electron-CV — intake return 6
+Source archive: Curriculum-Intake-Return-2.zip
+Archive SHA-256: 94dc2a7c25aea0839ce25a5b319aa69a5aeb95d181185f70872d0ce65997416b
+Working directory: <extracted-release>/Electron-CV
+UTC start: 2026-10-04T19:19:40.482078+00:00
+Command: npm run test:unit
+Environment: NO_COLOR=1; dedicated temporary npm cache; ELECTRON_RUN_AS_NODE=unset; VOLTFORGE_ELECTRON_EXECUTABLE, NODE_PATH and NODE_OPTIONS unset
+
+
+> voltforge-plato@1.0.0 test:unit
+> node --import tsx --test tests/core/*.test.ts
+
+✔ telemetry accepts only exact finite, bounded, versioned data (0.948272ms)
+✔ IPC rejects unknown operations/fields and untrusted frames (0.283979ms)
+✔ OSC subset round trips and rejects truncation, unsupported tags and oversized messages (1.148306ms)
+✔ rate gate bounds bursts and resets on a new window (0.137348ms)
+✔ telemetry lifecycle distinguishes empty, stale, disconnected and recovery (0.3798ms)
+✔ deadline fails closed and successful work retains its value (11.469462ms)
+✔ real WebSocket and OSC listeners accept validated packets and reject unsafe traffic (64.794842ms)
+✔ port collisions become listener error state rather than uncaught exceptions (11.409718ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 239.145392
+
+Exit status: 0
+Elapsed seconds: 0.344

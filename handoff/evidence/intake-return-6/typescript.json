@@ -1,0 +1,12 @@
+{
+  "label": "typescript",
+  "command": [
+    "npm",
+    "run",
+    "check"
+  ],
+  "started_utc": "2026-10-04T19:19:35.653500+00:00",
+  "elapsed_seconds": 3.061,
+  "exit_code": 0,
+  "transcript": "typescript.txt"
+}

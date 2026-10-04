@@ -1,0 +1,12 @@
+{
+  "label": "electron-versions",
+  "command": [
+    "node_modules/.bin/electron",
+    "-p",
+    "JSON.stringify({electron:process.versions.electron,node:process.versions.node,chromium:process.versions.chrome,v8:process.versions.v8,platform:process.platform,arch:process.arch},null,2)"
+  ],
+  "started_utc": "2026-10-04T19:20:02.542222+00:00",
+  "elapsed_seconds": 0.994,
+  "exit_code": 0,
+  "transcript": "electron-versions.txt"
+}

@@ -1,0 +1,103 @@
+{
+  "project": "VoltForge",
+  "repository": "Electron-CV",
+  "return": 6,
+  "source_archive_sha256": "94dc2a7c25aea0839ce25a5b319aa69a5aeb95d181185f70872d0ce65997416b",
+  "operation": "additions only",
+  "modify": [],
+  "remove": [],
+  "add": [
+    {
+      "path": "handoff/INTAKE_RETURN_6.md",
+      "before_sha256": null,
+      "after_sha256": "360737ac0127c86738fc1bc7955f1d965b777a5a4d1ada221c8b267533c3f28e"
+    },
+    {
+      "path": "handoff/evidence/intake-return-6/TRANSCRIPT.txt",
+      "before_sha256": null,
+      "after_sha256": "ecf33fd197cf6a87ee62296b7fd1fc9ee49f2195dd677a66d7b15f4b7816ea07"
+    },
+    {
+      "path": "handoff/evidence/intake-return-6/VERIFICATION.json",
+      "before_sha256": null,
+      "after_sha256": "806671dfdd153e9b95d1b96d0dad0511cdb966987ead6bdea211a7b40d122f0a"
+    },
+    {
+      "path": "handoff/evidence/intake-return-6/electron-versions.json",
+      "before_sha256": null,
+      "after_sha256": "07993c1ff17a46827e5ffbd5ab5bb4860fe2d081a050c0289c0f1d13e80027ce"
+    },
+    {
+      "path": "handoff/evidence/intake-return-6/electron-versions.txt",
+      "before_sha256": null,
+      "after_sha256": "fb457773023970e37b82f0db52fd707c3146f1ca9decbcd516dca3e8c4c5bc87"
+    },
+    {
+      "path": "handoff/evidence/intake-return-6/electron.json",
+      "before_sha256": null,
+      "after_sha256": "cc196b99cb468bdffaf6f08e6237490a3b12046b2e82abade2d0397ad52d3b90"
+    },
+    {
+      "path": "handoff/evidence/intake-return-6/electron.txt",
+      "before_sha256": null,
+      "after_sha256": "d89b4ec20c55d2dc2779554b7e435c1346a0fceb01b9877cee5e2552ca6dd839"
+    },
+    {
+      "path": "handoff/evidence/intake-return-6/html-assignment-scan.json",
+      "before_sha256": null,
+      "after_sha256": "7935a9b4be85fe538256d1de7620c8f1ba99be576a92e62b27c63d71115f9f57"
+    },
+    {
+      "path": "handoff/evidence/intake-return-6/install.json",
+      "before_sha256": null,
+      "after_sha256": "4beed053437f2acc97628f736f2ffb58dd49b6393cf7e583da7715014e7506ea"
+    },
+    {
+      "path": "handoff/evidence/intake-return-6/install.txt",
+      "before_sha256": null,
+      "after_sha256": "f3d429b95c8e10ea14d0896b9c69394ef2c890791a2c27410750db11ba9fff1b"
+    },
+    {
+      "path": "handoff/evidence/intake-return-6/node-versions.json",
+      "before_sha256": null,
+      "after_sha256": "017526abdab7157dc2b66e46c0e39994105344417e684e8940298ff0011feda1"
+    },
+    {
+      "path": "handoff/evidence/intake-return-6/node-versions.txt",
+      "before_sha256": null,
+      "after_sha256": "08840da23370d308c3592ae59bf8aec5151362e3b75d7566eeda205284a8e804"
+    },
+    {
+      "path": "handoff/evidence/intake-return-6/npm-version.json",
+      "before_sha256": null,
+      "after_sha256": "f5230c61efa5a03b0e2da609838bdfc03c73a7fae29c4b055ae9357758c25402"
+    },
+    {
+      "path": "handoff/evidence/intake-return-6/npm-version.txt",
+      "before_sha256": null,
+      "after_sha256": "4a3d4a0d22943c588f0a5f52283df90cd6b1e461327cfbaac7a0fe24c3fcecd1"
+    },
+    {
+      "path": "handoff/evidence/intake-return-6/typescript.json",
+      "before_sha256": null,
+      "after_sha256": "3e3cc50d5824f5941afb437cbeb76d5f5932d0f5b6b05bbfc88c6d681a807cdf"
+    },
+    {
+      "path": "handoff/evidence/intake-return-6/typescript.txt",
+      "before_sha256": null,
+      "after_sha256": "fea7f43ea8a4d3dde21affea76c2df3b5a84ac6794cf51318477b5c28d405878"
+    },
+    {
+      "path": "handoff/evidence/intake-return-6/unit.json",
+      "before_sha256": null,
+      "after_sha256": "75f50d653a4653b0e0f918d2999f0106d9e208c81acb8b2ddaca456ca61140cd"
+    },
+    {
+      "path": "handoff/evidence/intake-return-6/unit.txt",
+      "before_sha256": null,
+      "after_sha256": "f24bf5890cb5631aabef8794cb93ef59236afd170b6064903012edaa9b03ae06"
+    }
+  ],
+  "self": "handoff/INTAKE_RETURN_6_MANIFEST.json",
+  "self_hash": "excluded; covered by the outer archive checksum"
+}

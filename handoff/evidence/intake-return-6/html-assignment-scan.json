@@ -1,0 +1,17 @@
+{
+  "project": "VoltForge",
+  "repository": "Electron-CV",
+  "archive_sha256": "94dc2a7c25aea0839ce25a5b319aa69a5aeb95d181185f70872d0ce65997416b",
+  "files_scanned": [
+    "docs/capstone/index.html",
+    "docs/index.html",
+    "docs/phase-1/index.html",
+    "docs/phase-2/index.html",
+    "docs/phase-3/index.html",
+    "src/index.html"
+  ],
+  "pattern": "(?<![\\w$])(?:token|secret|password|key)\\s*(?:=(?!=|>)|\\+=|-=|\\*=|/=|%=|\\*\\*=|&&=|\\|\\|=|\\?\\?=|<<=|>>>=|>>=|&=|\\|=|\\^=)",
+  "matches": [],
+  "status": "passed",
+  "scope": "Text assignment-pattern scan of all delivered HTML files; not a substitute for Build\u2019s commit/push guard."
+}

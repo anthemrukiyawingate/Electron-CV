@@ -1,0 +1,187 @@
+{
+  "project": "VoltForge",
+  "repository": "Electron-CV",
+  "scope": "Electron-CV only; documentation and evidence additions only",
+  "date_utc": "2026-10-04T19:21:57.792341+00:00",
+  "source_archive": "Curriculum-Intake-Return-2.zip",
+  "source_archive_sha256": "94dc2a7c25aea0839ce25a5b319aa69a5aeb95d181185f70872d0ce65997416b",
+  "extraction_prefix": "intake-return-2/Electron-CV/",
+  "source_files_verified_before_tests": 61,
+  "source_files_unchanged_after_tests": true,
+  "changed_source_files": [],
+  "package_lock_sha256": "86a551f044147c5390536b3d4f9bcd3154760e4bbb6e0e612c3c28a08c42ae2a",
+  "source_hashes": {
+    ".gitattributes": "1a1dbe176bc233b499d35a57db7513f2941c99ab9759f177830c9149be99005b",
+    ".gitignore": "4aaccf490071b1df7ebce98af4bec8f4ec8a5d1c63558ba782bbff50ecfc32a7",
+    "01_Phase1_Main_and_Renderer_Architecture/README.md": "20b28d45b179bcc4a7757415fb5f5f38dc32116aa050ed8d808d481e7e238c9b",
+    "01_Phase1_Main_and_Renderer_Architecture/architecture.ipynb": "330145ec2b804749342daa25ed83778675d9d04cf2fe94af9cc11744735c2a1a",
+    "02_Phase2_Context_Bridge_and_Security/README.md": "46b0e6f3a3f50833fa6993d21f326b91e239f79c9234c19f5a9a665cb29020a1",
+    "02_Phase2_Context_Bridge_and_Security/security.ipynb": "a3f02fd10eee455978194c97164d26687cdc7c2b3d2c1101eab5f114412b5d16",
+    "03_Phase3_IPC_and_System_Integration/README.md": "bbf075f3a14a0a9dc6b2dadebeb1b1c294f7ec6d79f648c017cdbb05f4b11f31",
+    "03_Phase3_IPC_and_System_Integration/ipc.ipynb": "882dbcb8f780866bc0511570fc0c1405c613eabd72254a6cbf4a666187075eb6",
+    "LICENSE": "33b77f5e077ff2a27be5d97490330b4c7a9599b2c5530f68e0206c6726718d99",
+    "Projects/CAPSTONE_Plato_Dashboard_Electron/README.md": "ac1ace655d4161c2406bc34f98ab5aafe3087177b20d31a0802e925428122dea",
+    "Projects/mini_projects/README.md": "654552afd082a9d7448e9d301406bdc5fa2de9fa86c463f71ecdd33b098d8af3",
+    "README.md": "5bb981da069e523788930bca8471bb2fafac0e7908f09f3f1dc9ae9d7d092a14",
+    "docs/.nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/capstone/index.html": "59c976cc854b20e3af615292be2fadff191d0244105f1c1fbbd26587d51ffcab",
+    "docs/index.html": "b6b29ec3ee28b206055099e21ae2e654f3d02ee11e0b3de2781ba68d72f19604",
+    "docs/phase-1/index.html": "5f454c325af782f95e1ebf7594a68176c39b2d6d8e8efec317fa97d718dad1b0",
+    "docs/phase-2/index.html": "02707aeb8cf2183265a644596c7900e6f7e6f95b7caf827729d2b77b995ace5c",
+    "docs/phase-3/index.html": "76ff76c8de1fcf290f17578a41347aa7c7c20b481ffd87a0b007456d4bb19c37",
+    "forge.config.ts": "c367d816255d9bc87a6c701bd23e5caf3b599090052fb3bfdcccfc8a14351abb",
+    "handoff/AGENT_PROTOCOL.md": "431f3a001f7c641525ef58907c5e9ea61aca3bb5e53e34b19bfc7c054dc84644",
+    "handoff/BACKLOG.md": "9816d561705a19e7316341f58566f46a897e1d0b23407961bba41ef3ec9c69eb",
+    "handoff/DEVOPS_HANDOFF.md": "85170d8e7d147a652fd3c836431c6b1091cbedc459fd93b18cc24233bccd61ab",
+    "handoff/FILE_CHANGES.json": "f64c5d7d0afd9282f0a0f37ad81fd0c39cb892a10e04e95bebbf8d62dba3ebbf",
+    "handoff/INTAKE_RETURN_2.md": "bf5b7808b386609997efd74e3aea161018e4a38d018b0531bb9fc0359b68abd8",
+    "handoff/TRACKED_PATHS_TO_REMOVE.txt": "245ff68e8cdf1f7b49e1973a1789958720a8a9458129983181640149cda465eb",
+    "handoff/VALIDATION.md": "29c30845831c0ff87f3ab3e46e97823bd4af814a9a360a03e19794d9a88d2943",
+    "package-lock.json": "86a551f044147c5390536b3d4f9bcd3154760e4bbb6e0e612c3c28a08c42ae2a",
+    "package.json": "5a9122ccfbe17b8e7d573a2feb941bb7eba948a973027e2648dbb249c7fae268",
+    "playwright.demo.config.ts": "bcd1711494eb05bab59fef4adbc9aaebe56dfef1ea1aff92bc7c67917ba4b509",
+    "playwright.electron.config.ts": "c8179385263089f18982236bbccf4e44d2dec06a125ab36e1e6eeef7523c5093",
+    "requirements.txt": "918ceb9848fce8108eb2aa59befe552c92256ac8d042c59b26c4a411326bcaf3",
+    "scripts/agent-tasks.json": "e09b51976fca9b9c5ed11ed24f0f9295fdb1a41cf9c1a856f97597ba1a87d519",
+    "scripts/agent_harness.py": "db990d357fadb9773d9a105f99e258312d0a4140781e71b21d19a54919c10d1e",
+    "scripts/build.mjs": "295bf230c33840933a87eabe3119f8793ce720a755aeeb987bb005b6caec888c",
+    "scripts/check-delivery.py": "f2ee17dc0922944f6ee977947c6502b1105ef5e1f19df415d87b66bffc99e1cd",
+    "scripts/check-demos.mjs": "26d9620f7db8adefdfdb3e9cda0309e6d07eb22362c8bbd17c3d2e517ae61c84",
+    "scripts/notebook_support.py": "c6e39ef3f86a603c2d8691d65875e9046f8e55a73fffd5feb36e7386dbd4c555",
+    "scripts/release_hygiene.py": "9ae4b0755f7885b340bc432cd109b337bec6c8f37d644dc31001655c2b709302",
+    "scripts/run-notebooks.py": "5a8dc7473884983e13cfe72d2b30031c4332338501a326c622be6dda8c658d00",
+    "scripts/telemetry-simulator.ts": "5dbd2eac7aee333c272538b308420e2b1cf75c322d0a20bcce494b48ca4a1380",
+    "src/globals.d.ts": "d346bcc00907e122eebddd364fdd233e26e32b463799e541f7979f2c83d2d95f",
+    "src/index.html": "cf50dd220caafa83ae80849fcc03db7a8fbd94af1671e56478a369706209b59b",
+    "src/main.ts": "752a39711362466860964ba83cf331df037771374f75acfb991f8168e26c1c30",
+    "src/preload.ts": "c1fbc9835b92c5f99626bdb624380e4119d3ae8086d72b8e9198e4931b13c5e3",
+    "src/renderer.ts": "5cd0bec4f37e329b0eb38662c79ebc1506cc16d9029ebe72e8229a6f05558e88",
+    "src/shared/contracts.ts": "a7bc8ef4f948a480e17786deb4d2a15da4ecc343751da484604e57bc11983bcf",
+    "src/shared/types.ts": "e02ba5de83108a1bff988338e218986e36ec3a0a779e07d4292676c229fa660c",
+    "src/styles.css": "bd7617a451ba6b4bdde24bd0a60885f2cfc12364e089c51bfbb956139e615ec0",
+    "src/telemetry.ts": "9623e393ed151cebff45c2a3fdfc55bc51b282819fd2fcd15e2f9cf37e2d6138",
+    "tests/core/contracts.test.ts": "c6118812bd253c19efc424fc798d7cbda4b4615f036baed411a62c0d3cfe3ea5",
+    "tests/core/transport.test.ts": "e014376e4ddf2925e2240f4d899fe7464c2509f91fc97974f89b475b703fc9f7",
+    "tests/demo-red.test.mjs": "77693851a7aa0956354c52811227a7d7f2cf17cb910b84c00e353668cf9e2729",
+    "tests/demo.spec.ts": "1646abce9db45813b9287c084159e4375306a08c1ad11799be15221db1a6588c",
+    "tests/electron.spec.ts": "00f1702f91da53897798e7d63fdeae58c49bd1d99ee05d2a93e06418469c9851",
+    "tests/test_curriculum.py": "91582838b8b64f4428df025944a0b267dff966341b637c2d0781344571322e1c",
+    "tests/test_delivery.py": "9c30c64ffb597816000f7f3f02859580d3320f6b76e3545b37ea049695cb6f73",
+    "tests/test_release_hygiene.py": "1764fb5d26a02cd55fa55322bdd3ffec8a0b7f4fd1e36f1fc2f738d2f92f9cb2",
+    "tsconfig.json": "f4b01262bd6d707672ff99c8b5c2949b89b5eaddeeb215bb9a2f5ab494a1ecbf",
+    "tsconfig.main.json": "34b01c67df3bb4df011446f636390780362d2e211d45f0bb6e9c0359eb5477b7",
+    "tsconfig.renderer.json": "60fa0acb548893d03bd40c52d9b0fe3b3a1e81a81ac3a70cf5ac74ba220e6d19",
+    "tsconfig.tests.json": "378f596518de743f16de4f5487f4e377348da7b71621d5d17a3a475d40fc9943"
+  },
+  "versions": {
+    "host_node": "24.13.1",
+    "npm": "11.8.0",
+    "electron": "44.5.1",
+    "electron_embedded_node": "24.21.0",
+    "chromium": "152.0.7977.130",
+    "typescript": "5.9.3",
+    "playwright": "1.63.0",
+    "electron_forge": "8.0.1"
+  },
+  "results": {
+    "typescript": "passed: Main, Renderer, tests/configs",
+    "checked_javascript_demos": 5,
+    "unit_passed": 8,
+    "unit_failed": 0,
+    "unit_skipped": 0,
+    "electron_passed": 1,
+    "electron_failed": 0,
+    "electron_skipped": 0,
+    "html_assignment_pattern_scan": "passed: six HTML files"
+  },
+  "environment": "Linux x64; fresh npm ci in isolated archive extraction; graphical session; real loopback socket fixtures",
+  "electron_sandbox": "enabled; acceptance test asserts no --no-sandbox switch and verifies isolated renderer",
+  "other_repositories_touched": false,
+  "version_control_mutations_performed": false,
+  "checks": [
+    {
+      "label": "install",
+      "command": [
+        "npm",
+        "ci",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "started_utc": "2026-10-04T19:18:47.765618+00:00",
+      "elapsed_seconds": 3.772,
+      "exit_code": 0,
+      "transcript": "install.txt"
+    },
+    {
+      "label": "node-versions",
+      "command": [
+        "node",
+        "-e",
+        "const os=require(\"node:os\");const names=[\"electron\",\"typescript\",\"@playwright/test\",\"@electron-forge/cli\",\"tsx\",\"esbuild\"];console.log(JSON.stringify({node:process.version,platform:process.platform,arch:process.arch,kernel:os.release(),packages:Object.fromEntries(names.map(n=>[n,require(n+\"/package.json\").version]))},null,2))"
+      ],
+      "started_utc": "2026-10-04T19:19:35.751225+00:00",
+      "elapsed_seconds": 0.024,
+      "exit_code": 0,
+      "transcript": "node-versions.txt"
+    },
+    {
+      "label": "npm-version",
+      "command": [
+        "npm",
+        "--version"
+      ],
+      "started_utc": "2026-10-04T19:19:35.813216+00:00",
+      "elapsed_seconds": 0.06,
+      "exit_code": 0,
+      "transcript": "npm-version.txt"
+    },
+    {
+      "label": "electron-versions",
+      "command": [
+        "node_modules/.bin/electron",
+        "-p",
+        "JSON.stringify({electron:process.versions.electron,node:process.versions.node,chromium:process.versions.chrome,v8:process.versions.v8,platform:process.platform,arch:process.arch},null,2)"
+      ],
+      "started_utc": "2026-10-04T19:20:02.542222+00:00",
+      "elapsed_seconds": 0.994,
+      "exit_code": 0,
+      "transcript": "electron-versions.txt"
+    },
+    {
+      "label": "typescript",
+      "command": [
+        "npm",
+        "run",
+        "check"
+      ],
+      "started_utc": "2026-10-04T19:19:35.653500+00:00",
+      "elapsed_seconds": 3.061,
+      "exit_code": 0,
+      "transcript": "typescript.txt"
+    },
+    {
+      "label": "unit",
+      "command": [
+        "npm",
+        "run",
+        "test:unit"
+      ],
+      "started_utc": "2026-10-04T19:19:40.482078+00:00",
+      "elapsed_seconds": 0.344,
+      "exit_code": 0,
+      "transcript": "unit.txt"
+    },
+    {
+      "label": "electron",
+      "command": [
+        "npm",
+        "run",
+        "test:electron"
+      ],
+      "started_utc": "2026-10-04T19:20:06.739174+00:00",
+      "elapsed_seconds": 9.649,
+      "exit_code": 0,
+      "transcript": "electron.txt"
+    }
+  ]
+}

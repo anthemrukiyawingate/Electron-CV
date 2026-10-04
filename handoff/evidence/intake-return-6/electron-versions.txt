@@ -1,0 +1,20 @@
+VoltForge / Electron-CV — intake return 6
+Source archive: Curriculum-Intake-Return-2.zip
+Archive SHA-256: 94dc2a7c25aea0839ce25a5b319aa69a5aeb95d181185f70872d0ce65997416b
+Working directory: <extracted-release>/Electron-CV
+UTC start: 2026-10-04T19:20:02.542222+00:00
+Command: node_modules/.bin/electron -p 'JSON.stringify({electron:process.versions.electron,node:process.versions.node,chromium:process.versions.chrome,v8:process.versions.v8,platform:process.platform,arch:process.arch},null,2)'
+Environment: NO_COLOR=1; dedicated temporary npm cache; ELECTRON_RUN_AS_NODE=1 (version query only); VOLTFORGE_ELECTRON_EXECUTABLE, NODE_PATH and NODE_OPTIONS unset
+
+Downloading Electron binary...
+{
+  "electron": "44.5.1",
+  "node": "24.21.0",
+  "chromium": "152.0.7977.130",
+  "v8": "15.2.124.28-electron.0",
+  "platform": "linux",
+  "arch": "x64"
+}
+
+Exit status: 0
+Elapsed seconds: 0.994

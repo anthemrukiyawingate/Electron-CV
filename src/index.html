@@ -1,0 +1,34 @@
+<!doctype html>
+<!-- [CAPSTONE INTEGRATION TARGET] Plato displays validated physical-shadow telemetry. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'">
+  <title>Plato · VoltForge</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="renderer.js"></script>
+</head>
+<body>
+  <div class="shell">
+    <aside class="rail" aria-label="Application identity"><div class="brand-mark">P<span>•</span></div><span class="rail-label">VOLTFORGE / PLATO</span><span class="rail-foot">01</span></aside>
+    <main>
+      <header><div><p class="eyebrow">PHYSICAL SHADOW / CONTROL ROOM</p><h1>Make the invisible <em>visible.</em></h1><p class="intro">A live view of the space between movement and light.</p></div><div class="session"><span class="live-dot"></span> LOCAL SESSION <small>V1.0 / SANDBOXED</small></div></header>
+      <section class="status-strip" aria-label="Connection status"><span class="status-chip" id="connection-state" role="status">Loading</span><p id="status-message">Connecting to the Main process…</p><button id="retry" type="button">Refresh status <span aria-hidden="true">↗</span></button></section>
+      <div class="workspace">
+        <section class="stage-card" aria-labelledby="stage-heading">
+          <div class="card-heading"><div><p class="eyebrow">01 / SPATIAL FIELD</p><h2 id="stage-heading">Shadow projection</h2></div><span class="mono">X / Y &nbsp; −1 → +1</span></div>
+          <div class="stage"><canvas id="shadow-canvas" aria-label="Live positions of tracked shadows"></canvas><div id="empty-state"><span class="empty-symbol">◎</span><h3>Waiting for movement</h3><p>Start the telemetry simulator or connect a local producer.</p><code>npm run telemetry:simulate</code></div><span class="stage-origin">+ ORIGIN</span><span class="stage-scale">NORMALIZED COORDINATES</span></div>
+          <div class="stage-footer"><span><i class="legend-dot"></i> TRACKED SHADOW <b id="object-count">00</b></span><label><input id="trails" type="checkbox" checked> Motion trails</label><span class="mono"><b id="fps">—</b> FPS / <b id="resolution">100</b>%</span></div>
+        </section>
+        <aside class="side-panel">
+          <section class="card"><p class="eyebrow">02 / PIPELINE</p><h2>Signal health</h2><div class="signal-row"><span>Camera</span><b id="camera-state">UNKNOWN</b></div><div class="signal-row"><span>Projector</span><b id="projector-state">UNKNOWN</b></div><div class="signal-row"><span>WebSocket</span><b id="ws-state">STARTING</b></div><div class="signal-row"><span>OSC / UDP</span><b id="osc-state">STARTING</b></div><p class="card-note">Hardware states are reported by the producer; they are not independent device probes.</p></section>
+          <section class="card"><p class="eyebrow">03 / TELEMETRY</p><h2>Latest frame</h2><dl><div><dt>Source</dt><dd id="source">—</dd></div><div><dt>Transport</dt><dd id="transport">—</dd></div><div><dt>Sequence</dt><dd id="sequence">—</dd></div><div><dt>Last received</dt><dd id="age">—</dd></div><div><dt>Rejected packets</dt><dd id="rejected">0</dd></div></dl><p id="rejection-note" class="card-note">Only validated, versioned packets reach this view.</p></section>
+        </aside>
+      </div>
+      <section class="objects-card" aria-labelledby="objects-heading"><div class="card-heading"><div><p class="eyebrow">04 / OBJECT REGISTRY</p><h2 id="objects-heading">Tracked objects</h2></div><span class="mono">CAPACITY / 64</span></div><div class="table-wrap"><table><thead><tr><th>OBJECT ID</th><th>X POSITION</th><th>Y POSITION</th><th>CONFIDENCE</th></tr></thead><tbody id="object-rows"><tr><td colspan="4">No validated objects received.</td></tr></tbody></table></div></section>
+      <footer><span><strong>PLATO</strong> / VoltForge reference dashboard</span><span>Loopback ingress · isolated context · validated IPC</span></footer>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "label": "electron",
+  "command": [
+    "npm",
+    "run",
+    "test:electron"
+  ],
+  "started_utc": "2026-10-04T19:20:06.739174+00:00",
+  "elapsed_seconds": 9.649,
+  "exit_code": 0,
+  "transcript": "electron.txt"
+}

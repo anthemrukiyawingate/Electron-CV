@@ -1,0 +1,12 @@
+{
+  "label": "node-versions",
+  "command": [
+    "node",
+    "-e",
+    "const os=require(\"node:os\");const names=[\"electron\",\"typescript\",\"@playwright/test\",\"@electron-forge/cli\",\"tsx\",\"esbuild\"];console.log(JSON.stringify({node:process.version,platform:process.platform,arch:process.arch,kernel:os.release(),packages:Object.fromEntries(names.map(n=>[n,require(n+\"/package.json\").version]))},null,2))"
+  ],
+  "started_utc": "2026-10-04T19:19:35.751225+00:00",
+  "elapsed_seconds": 0.024,
+  "exit_code": 0,
+  "transcript": "node-versions.txt"
+}

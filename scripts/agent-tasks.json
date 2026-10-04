@@ -1,0 +1,814 @@
+{
+  "schema_version": 1,
+  "tasks": [
+    {
+      "id": "VF-000",
+      "sprint": 0,
+      "phase": "0",
+      "title": "Establish the delivery contract",
+      "objective": "produce `README.md`, MIT `LICENSE`, mandatory phase directories, source map, scope and review gates; distinguish public mocks from Electron execution.",
+      "prerequisites": [],
+      "inputs": [
+        "project mandate, attribution names, Linux + Windows topology, Build team ownership.",
+        "Start in the repository root; Node LTS and Python 3.11+; install npm ci and .venv requirements as applicable."
+      ],
+      "outputs": [
+        "README.md",
+        "LICENSE",
+        "handoff/BACKLOG.md",
+        "handoff/DEVOPS_HANDOFF.md"
+      ],
+      "steps": [
+        "Read handoff/BACKLOG.md VF-000 and handoff/AGENT_PROTOCOL.md; Build environment team exclusively owns version control.",
+        "Write a meaningful failing test; record whether its failure is environmental or behavioral before implementation.",
+        "produce `README.md`, MIT `LICENSE`, mandatory phase directories, source map, scope and review gates; distinguish public mocks from Electron execution.",
+        "enumerate missing required documents; create them; validate internal file links and the exact project title. Reviewer checks both attributions and MIT scope."
+      ],
+      "failure_cases": [
+        "no assumed GitHub URL, no embedded credentials, no claim that local checkout changes Pages source"
+      ],
+      "checks": [
+        "curriculum"
+      ],
+      "manual_gates": [
+        "Build team can identify what to import, what to exclude, and which checks it owns.",
+        "Review task evidence against handoff/BACKLOG.md VF-000; automated checks alone do not prove live Windows/MCP/hardware/publication."
+      ],
+      "demo": "docs/index.html",
+      "definition_of_done": "Build team can identify what to import, what to exclude, and which checks it owns."
+    },
+    {
+      "id": "VF-001",
+      "sprint": 0,
+      "phase": "0",
+      "title": "Strict TypeScript and Forge scaffold",
+      "objective": "root package and lockfile; separate Main and Browser TypeScript configs; bundled sandbox-compatible preload; Forge makers; reproducible build script.",
+      "prerequisites": [
+        "VF-000"
+      ],
+      "inputs": [
+        "empty app scaffold and chosen reviewed package versions.",
+        "Start in the repository root; Node LTS and Python 3.11+; install npm ci and .venv requirements as applicable."
+      ],
+      "outputs": [
+        "package.json",
+        "package-lock.json",
+        "forge.config.ts",
+        "tsconfig.main.json",
+        "tsconfig.renderer.json"
+      ],
+      "steps": [
+        "Read handoff/BACKLOG.md VF-001 and handoff/AGENT_PROTOCOL.md; Build environment team exclusively owns version control.",
+        "Write a meaningful failing test; record whether its failure is environmental or behavioral before implementation.",
+        "root package and lockfile; separate Main and Browser TypeScript configs; bundled sandbox-compatible preload; Forge makers; reproducible build script.",
+        "missing implementation tests fail; `npm ci`, `npm run check`, `npm run build`, and `npm test` pass. Renderer compilation cannot resolve Node globals."
+      ],
+      "failure_cases": [
+        "no global Electron dependency, no source evaluation through preload, no hidden CDN dependencies, no development credentials in package output"
+      ],
+      "checks": [
+        "types",
+        "unit",
+        "build"
+      ],
+      "manual_gates": [
+        "`dist/main.js` launches through the root package; Forge packaging commands and platform restrictions are documented.",
+        "Review task evidence against handoff/BACKLOG.md VF-001; automated checks alone do not prove live Windows/MCP/hardware/publication."
+      ],
+      "demo": "docs/index.html",
+      "definition_of_done": "`dist/main.js` launches through the root package; Forge packaging commands and platform restrictions are documented."
+    },
+    {
+      "id": "VF-002",
+      "sprint": 0,
+      "phase": "0",
+      "title": "Linux notebook and MCP harness",
+      "objective": "schema-aware stdio MCP helper, offline fixture, notebook runner, explicit live-mode opt-in and deadlines.",
+      "prerequisites": [
+        "VF-000"
+      ],
+      "inputs": [
+        "Python environment, `requirements.txt`, MCP adapter documentation.",
+        "Start in the repository root; Node LTS and Python 3.11+; install npm ci and .venv requirements as applicable."
+      ],
+      "outputs": [
+        "requirements.txt",
+        "scripts/notebook_support.py",
+        "scripts/run-notebooks.py"
+      ],
+      "steps": [
+        "Read handoff/BACKLOG.md VF-002 and handoff/AGENT_PROTOCOL.md; Build environment team exclusively owns version control.",
+        "Write a meaningful failing test; record whether its failure is environmental or behavioral before implementation.",
+        "schema-aware stdio MCP helper, offline fixture, notebook runner, explicit live-mode opt-in and deadlines.",
+        "missing helper fails; unittest validates timeout, malformed response, tool rejection, and absence of live side effects by default. All three notebooks execute offline."
+      ],
+      "failure_cases": [
+        "list tool schemas before invocation",
+        "unavailable adapter never produces a simulated result labeled live",
+        "errors carry structured codes"
+      ],
+      "checks": [
+        "curriculum",
+        "notebooks"
+      ],
+      "manual_gates": [
+        "new learner executes offline laboratories from either repository or notebook directory without editing imports.",
+        "Review task evidence against handoff/BACKLOG.md VF-002; automated checks alone do not prove live Windows/MCP/hardware/publication."
+      ],
+      "demo": "docs/index.html",
+      "definition_of_done": "new learner executes offline laboratories from either repository or notebook directory without editing imports."
+    },
+    {
+      "id": "VF-003",
+      "sprint": 0,
+      "phase": "0",
+      "title": "Agent task dispatch and audit format",
+      "objective": "`handoff/AGENT_PROTOCOL.md`, machine-readable task manifest, local harness for selecting tasks and running validation. Separate file ownership for concurrent agents.",
+      "prerequisites": [
+        "VF-000",
+        "VF-001",
+        "VF-002"
+      ],
+      "inputs": [
+        "this backlog and the two mandated developer instruction templates.",
+        "Start in the repository root; Node LTS and Python 3.11+; install npm ci and .venv requirements as applicable."
+      ],
+      "outputs": [
+        "handoff/AGENT_PROTOCOL.md",
+        "scripts/agent_harness.py",
+        "scripts/agent-tasks.json"
+      ],
+      "steps": [
+        "Read handoff/BACKLOG.md VF-003 and handoff/AGENT_PROTOCOL.md; Build environment team exclusively owns version control.",
+        "Write a meaningful failing test; record whether its failure is environmental or behavioral before implementation.",
+        "`handoff/AGENT_PROTOCOL.md`, machine-readable task manifest, local harness for selecting tasks and running validation. Separate file ownership for concurrent agents.",
+        "unknown task ID fails; known task emits its exact inputs, outputs, test commands, and falsification requirements. No implicit cloud/model invocation."
+      ],
+      "failure_cases": [
+        "harness refuses ambiguous/unknown commands rather than evaluating user input",
+        "evidence states whether red failure was environmental or behavioral"
+      ],
+      "checks": [
+        "curriculum"
+      ],
+      "manual_gates": [
+        "another developer can execute a card without inventing interface names or setup assumptions.",
+        "Review task evidence against handoff/BACKLOG.md VF-003; automated checks alone do not prove live Windows/MCP/hardware/publication."
+      ],
+      "demo": "docs/index.html",
+      "definition_of_done": "another developer can execute a card without inventing interface names or setup assumptions."
+    },
+    {
+      "id": "VF-004",
+      "sprint": 0,
+      "phase": "0",
+      "title": "Cross-platform connectivity rehearsal",
+      "objective": "version inventory, SSH host fingerprint verification, loopback CDP launch, local forwarding, `/json/version` response, tool inventory.",
+      "prerequisites": [
+        "VF-001",
+        "VF-002"
+      ],
+      "inputs": [
+        "Windows interactive session, Linux host, reviewed MCP adapter.",
+        "Start in the repository root; Node LTS and Python 3.11+; install npm ci and .venv requirements as applicable."
+      ],
+      "outputs": [
+        "Operator-owned Windows/Linux connectivity evidence and discovered MCP tool catalog"
+      ],
+      "steps": [
+        "Read handoff/BACKLOG.md VF-004 and handoff/AGENT_PROTOCOL.md; Build environment team exclusively owns version control.",
+        "Write a meaningful failing test; record whether its failure is environmental or behavioral before implementation.",
+        "version inventory, SSH host fingerprint verification, loopback CDP launch, local forwarding, `/json/version` response, tool inventory.",
+        "deadline-bound discovery succeeds through tunnel; stopping SSH produces a bounded failure. Main evaluation is demonstrated through the owned Electron session, separately from CDP DOM evaluation."
+      ],
+      "failure_cases": [
+        "verify bound addresses and no public CDP firewall rule. Prove untrusted host cannot reach debugger directly"
+      ],
+      "checks": [
+        "curriculum"
+      ],
+      "manual_gates": [
+        "evidence attached by workstation owner; pending until real hosts are available.",
+        "Review task evidence against handoff/BACKLOG.md VF-004; automated checks alone do not prove live Windows/MCP/hardware/publication."
+      ],
+      "demo": "docs/index.html",
+      "definition_of_done": "evidence attached by workstation owner; pending until real hosts are available."
+    },
+    {
+      "id": "VF-100",
+      "sprint": 1,
+      "phase": "1",
+      "title": "Native window and Main laboratory",
+      "objective": "start one owned Electron session, enumerate window, evaluate a harmless Main fact (`app.getVersion()`), stop the owned session; document process ownership.",
+      "prerequisites": [
+        "VF-002",
+        "VF-004"
+      ],
+      "inputs": [
+        "architecture notebook and driver tool schema inventory.",
+        "Start in the repository root; Node LTS and Python 3.11+; install npm ci and .venv requirements as applicable."
+      ],
+      "outputs": [
+        "01_Phase1_Main_and_Renderer_Architecture/architecture.ipynb",
+        "Windows owned-session launch/Main-inspection/stop evidence"
+      ],
+      "steps": [
+        "Read handoff/BACKLOG.md VF-100 and handoff/AGENT_PROTOCOL.md; Build environment team exclusively owns version control.",
+        "Write a meaningful failing test; record whether its failure is environmental or behavioral before implementation.",
+        "start one owned Electron session, enumerate window, evaluate a harmless Main fact (`app.getVersion()`), stop the owned session; document process ownership.",
+        "offline fixture predicts the trace; live Playwright/driver run observes native window count and Main result. Always close the session in cleanup."
+      ],
+      "failure_cases": [
+        "invalid entry path, session already running, lost transport, and missing start tool fail explicitly. Main evaluation never becomes a renderer API"
+      ],
+      "checks": [
+        "curriculum",
+        "notebooks"
+      ],
+      "manual_gates": [
+        "notebook identifies which host owns each process and why CDP alone cannot perform this exercise.",
+        "Review task evidence against handoff/BACKLOG.md VF-100; automated checks alone do not prove live Windows/MCP/hardware/publication."
+      ],
+      "demo": "docs/phase-1/index.html",
+      "definition_of_done": "notebook identifies which host owns each process and why CDP alone cannot perform this exercise."
+    },
+    {
+      "id": "VF-101",
+      "sprint": 1,
+      "phase": "1",
+      "title": "Sandboxed renderer and DOM laboratory",
+      "objective": "inspect the renderer through CDP or Electron Playwright; manipulate a harmless DOM label through the privileged test harness; inspect `typeof require` in page context.",
+      "prerequisites": [
+        "VF-001",
+        "VF-100"
+      ],
+      "inputs": [
+        "secure BrowserWindow and preload.",
+        "Start in the repository root; Node LTS and Python 3.11+; install npm ci and .venv requirements as applicable."
+      ],
+      "outputs": [
+        "src/main.ts",
+        "src/preload.ts",
+        "Windows renderer DOM/global-inspection evidence"
+      ],
+      "steps": [
+        "Read handoff/BACKLOG.md VF-101 and handoff/AGENT_PROTOCOL.md; Build environment team exclusively owns version control.",
+        "Write a meaningful failing test; record whether its failure is environmental or behavioral before implementation.",
+        "inspect the renderer through CDP or Electron Playwright; manipulate a harmless DOM label through the privileged test harness; inspect `typeof require` in page context.",
+        "visible label changes; `require` and `process` are unavailable; context isolation and sandbox preferences remain enabled."
+      ],
+      "failure_cases": [
+        "popup and navigation attempts fail",
+        "no filesystem or shell capability is exposed"
+      ],
+      "checks": [
+        "types",
+        "unit",
+        "build"
+      ],
+      "manual_gates": [
+        "learner can explain why a DOM mutation does not authorize reading OS files.",
+        "Review task evidence against handoff/BACKLOG.md VF-101; automated checks alone do not prove live Windows/MCP/hardware/publication."
+      ],
+      "demo": "docs/phase-1/index.html",
+      "definition_of_done": "learner can explain why a DOM mutation does not authorize reading OS files."
+    },
+    {
+      "id": "VF-102",
+      "sprint": 1,
+      "phase": "1",
+      "title": "Architecture engine mock",
+      "objective": "standalone `docs/index.html` and `docs/phase-1/index.html`; spawn mock windows, attempt restricted file access, visualize allowed mediated requests.",
+      "prerequisites": [
+        "VF-101"
+      ],
+      "inputs": [
+        "conceptual Main/Renderer/OS model.",
+        "Start in the repository root; Node LTS and Python 3.11+; install npm ci and .venv requirements as applicable."
+      ],
+      "outputs": [
+        "docs/index.html",
+        "docs/phase-1/index.html"
+      ],
+      "steps": [
+        "Read handoff/BACKLOG.md VF-102 and handoff/AGENT_PROTOCOL.md; Build environment team exclusively owns version control.",
+        "Write a meaningful failing test; record whether its failure is environmental or behavioral before implementation.",
+        "standalone `docs/index.html` and `docs/phase-1/index.html`; spawn mock windows, attempt restricted file access, visualize allowed mediated requests.",
+        "Playwright clicks each control and checks state transitions. Check offline direct-file launch, keyboard access, 390 px width, and 4K viewport."
+      ],
+      "failure_cases": [
+        "no real OS calls",
+        "simulator status labeled",
+        "window/history limits prevent unbounded state"
+      ],
+      "checks": [
+        "demos"
+      ],
+      "manual_gates": [
+        "DRS, time-based easing, visibility handling, and a measurable frame-rate display operate without external assets.",
+        "Review task evidence against handoff/BACKLOG.md VF-102; automated checks alone do not prove live Windows/MCP/hardware/publication."
+      ],
+      "demo": "docs/phase-1/index.html",
+      "definition_of_done": "DRS, time-based easing, visibility handling, and a measurable frame-rate display operate without external assets."
+    },
+    {
+      "id": "VF-200",
+      "sprint": 2,
+      "phase": "2",
+      "title": "Typed, minimal preload contract",
+      "objective": "expose named methods through contextBridge; keep channels private; wrap invoke in finite deadlines; validate sender frame in Main.",
+      "prerequisites": [
+        "VF-101"
+      ],
+      "inputs": [
+        "documented request/reply union and trusted application URL.",
+        "Start in the repository root; Node LTS and Python 3.11+; install npm ci and .venv requirements as applicable."
+      ],
+      "outputs": [
+        "src/preload.ts",
+        "src/main.ts",
+        "src/shared/types.ts"
+      ],
+      "steps": [
+        "Read handoff/BACKLOG.md VF-200 and handoff/AGENT_PROTOCOL.md; Build environment team exclusively owns version control.",
+        "Write a meaningful failing test; record whether its failure is environmental or behavioral before implementation.",
+        "expose named methods through contextBridge; keep channels private; wrap invoke in finite deadlines; validate sender frame in Main.",
+        "real renderer sees only named public methods; forged channel, child frame, foreign origin, and unknown request fields are rejected."
+      ],
+      "failure_cases": [
+        "Reject extra/unknown fields and invalid requestId.",
+        "Reject untrusted sender even when payload schema passes.",
+        "Never expose raw ipcRenderer, generic channels, evaluation, or user-controlled filesystem paths."
+      ],
+      "checks": [
+        "types",
+        "unit",
+        "curriculum"
+      ],
+      "manual_gates": [
+        "exact API, error codes, and authority model in the Capstone guide.",
+        "Review task evidence against handoff/BACKLOG.md VF-200; automated checks alone do not prove live Windows/MCP/hardware/publication."
+      ],
+      "demo": "docs/phase-2/index.html",
+      "definition_of_done": "exact API, error codes, and authority model in the Capstone guide."
+    },
+    {
+      "id": "VF-201",
+      "sprint": 2,
+      "phase": "2",
+      "title": "Security falsification notebook",
+      "objective": "security notebook compares valid structured data, unknown fields, wrong types, excessive size, prototype-like keys, and attempted code strings.",
+      "prerequisites": [
+        "VF-200"
+      ],
+      "inputs": [
+        "bridge schema and malicious data corpus.",
+        "Start in the repository root; Node LTS and Python 3.11+; install npm ci and .venv requirements as applicable."
+      ],
+      "outputs": [
+        "02_Phase2_Context_Bridge_and_Security/security.ipynb",
+        "tests/test_curriculum.py"
+      ],
+      "steps": [
+        "Read handoff/BACKLOG.md VF-201 and handoff/AGENT_PROTOCOL.md; Build environment team exclusively owns version control.",
+        "Write a meaningful failing test; record whether its failure is environmental or behavioral before implementation.",
+        "security notebook compares valid structured data, unknown fields, wrong types, excessive size, prototype-like keys, and attempted code strings.",
+        "permitted command passes; every invalid case is rejected for an explicit reason; untrusted values stay text."
+      ],
+      "failure_cases": [
+        "schema rejection is not represented as comprehensive XSS protection or a general code sanitizer"
+      ],
+      "checks": [
+        "curriculum",
+        "notebooks"
+      ],
+      "manual_gates": [
+        "learner explains the difference between input validation, sender authorization, context isolation, and CSP.",
+        "Review task evidence against handoff/BACKLOG.md VF-201; automated checks alone do not prove live Windows/MCP/hardware/publication."
+      ],
+      "demo": "docs/phase-2/index.html",
+      "definition_of_done": "learner explains the difference between input validation, sender authorization, context isolation, and CSP."
+    },
+    {
+      "id": "VF-202",
+      "sprint": 2,
+      "phase": "2",
+      "title": "Context bridge challenge",
+      "objective": "standalone `docs/phase-2/index.html`; edit a payload, select challenges, observe gate decisions and an explanatory trace.",
+      "prerequisites": [
+        "VF-201"
+      ],
+      "inputs": [
+        "notebook cases and allowed demo request schema.",
+        "Start in the repository root; Node LTS and Python 3.11+; install npm ci and .venv requirements as applicable."
+      ],
+      "outputs": [
+        "docs/phase-2/index.html"
+      ],
+      "steps": [
+        "Read handoff/BACKLOG.md VF-202 and handoff/AGENT_PROTOCOL.md; Build environment team exclusively owns version control.",
+        "Write a meaningful failing test; record whether its failure is environmental or behavioral before implementation.",
+        "standalone `docs/phase-2/index.html`; edit a payload, select challenges, observe gate decisions and an explanatory trace.",
+        "valid payload accepted; script string and extra authority rejected; score/state updates; malicious text never executes."
+      ],
+      "failure_cases": [
+        "JSON parse errors recover without reloading",
+        "renderer remains interactive after repeated rejections"
+      ],
+      "checks": [
+        "demos"
+      ],
+      "manual_gates": [
+        "challenge includes a clear explanation of why replacing `<script>` text is insufficient.",
+        "Review task evidence against handoff/BACKLOG.md VF-202; automated checks alone do not prove live Windows/MCP/hardware/publication."
+      ],
+      "demo": "docs/phase-2/index.html",
+      "definition_of_done": "challenge includes a clear explanation of why replacing `<script>` text is insufficient."
+    },
+    {
+      "id": "VF-203",
+      "sprint": 2,
+      "phase": "2",
+      "title": "Packaged security inspection",
+      "objective": "inspect preferences, navigation, CSP, default closed debug ports, package contents and preload loading. Run actual sandboxed renderer smoke test.",
+      "prerequisites": [
+        "VF-200"
+      ],
+      "inputs": [
+        "packaged native bundle on target OS.",
+        "Start in the repository root; Node LTS and Python 3.11+; install npm ci and .venv requirements as applicable."
+      ],
+      "outputs": [
+        "Build-team packaged-security inspection evidence"
+      ],
+      "steps": [
+        "Read handoff/BACKLOG.md VF-203 and handoff/AGENT_PROTOCOL.md; Build environment team exclusively owns version control.",
+        "Write a meaningful failing test; record whether its failure is environmental or behavioral before implementation.",
+        "inspect preferences, navigation, CSP, default closed debug ports, package contents and preload loading. Run actual sandboxed renderer smoke test.",
+        "inspect preferences, navigation, CSP, default closed debug ports, package contents and preload loading. Run actual sandboxed renderer smoke test."
+      ],
+      "failure_cases": [
+        "development-only debug switches are absent from release launch",
+        "signing credentials never packaged"
+      ],
+      "checks": [
+        "types",
+        "unit",
+        "build"
+      ],
+      "manual_gates": [
+        "target-host package evidence attached; a headless host inability to launch cannot count as security success.",
+        "Review task evidence against handoff/BACKLOG.md VF-203; automated checks alone do not prove live Windows/MCP/hardware/publication."
+      ],
+      "demo": "docs/phase-2/index.html",
+      "definition_of_done": "target-host package evidence attached; a headless host inability to launch cannot count as security success."
+    },
+    {
+      "id": "VF-300",
+      "sprint": 3,
+      "phase": "3",
+      "title": "Async request/reply and graceful failure",
+      "objective": "`ipcMain.handle`/`ipcRenderer.invoke`; correlate responses; time out pending work; show loading, error, retry, and stale state.",
+      "prerequisites": [
+        "VF-200"
+      ],
+      "inputs": [
+        "IPC channel, response union, request ID rules.",
+        "Start in the repository root; Node LTS and Python 3.11+; install npm ci and .venv requirements as applicable."
+      ],
+      "outputs": [
+        "src/main.ts",
+        "src/preload.ts",
+        "src/renderer.ts"
+      ],
+      "steps": [
+        "Read handoff/BACKLOG.md VF-300 and handoff/AGENT_PROTOCOL.md; Build environment team exclusively owns version control.",
+        "Write a meaningful failing test; record whether its failure is environmental or behavioral before implementation.",
+        "`ipcMain.handle`/`ipcRenderer.invoke`; correlate responses; time out pending work; show loading, error, retry, and stale state.",
+        "fulfillment, handler rejection, no reply, duplicate/late reply, destroyed window, and retry all have explicit expected outcomes."
+      ],
+      "failure_cases": [
+        "timeouts clear timers, late replies cannot replace newer UI state, and a client deadline is not falsely described as remote cancellation"
+      ],
+      "checks": [
+        "types",
+        "unit",
+        "curriculum"
+      ],
+      "manual_gates": [
+        "test traces explain the return trip across the isolated context.",
+        "Review task evidence against handoff/BACKLOG.md VF-300; automated checks alone do not prove live Windows/MCP/hardware/publication."
+      ],
+      "demo": "docs/phase-3/index.html",
+      "definition_of_done": "test traces explain the return trip across the isolated context."
+    },
+    {
+      "id": "VF-301",
+      "sprint": 3,
+      "phase": "3",
+      "title": "IPC notebook and bounded orchestration",
+      "objective": "notebook records request ID, send/settle times, error code, and retry policy. Distinguish transport timeout from application rejection.",
+      "prerequisites": [
+        "VF-300"
+      ],
+      "inputs": [
+        "request fixture and helper.",
+        "Start in the repository root; Node LTS and Python 3.11+; install npm ci and .venv requirements as applicable."
+      ],
+      "outputs": [
+        "03_Phase3_IPC_and_System_Integration/ipc.ipynb",
+        "scripts/notebook_support.py"
+      ],
+      "steps": [
+        "Read handoff/BACKLOG.md VF-301 and handoff/AGENT_PROTOCOL.md; Build environment team exclusively owns version control.",
+        "Write a meaningful failing test; record whether its failure is environmental or behavioral before implementation.",
+        "notebook records request ID, send/settle times, error code, and retry policy. Distinguish transport timeout from application rejection.",
+        "normal and timeout fixtures run offline; live tests invoke the actual bridge API. Repeated execution leaves no background tasks."
+      ],
+      "failure_cases": [
+        "no indefinite wait on MCP start, initialization, list-tools, call-tools, or teardown"
+      ],
+      "checks": [
+        "curriculum",
+        "notebooks"
+      ],
+      "manual_gates": [
+        "notebook and helper produce machine-readable, payload-redacted logs.",
+        "Review task evidence against handoff/BACKLOG.md VF-301; automated checks alone do not prove live Windows/MCP/hardware/publication."
+      ],
+      "demo": "docs/phase-3/index.html",
+      "definition_of_done": "notebook and helper produce machine-readable, payload-redacted logs."
+    },
+    {
+      "id": "VF-302",
+      "sprint": 3,
+      "phase": "3",
+      "title": "IPC node graph simulator",
+      "objective": "standalone `docs/phase-3/index.html`; visual outbound/return paths, latency control, disconnect and failure injection, bounded trace.",
+      "prerequisites": [
+        "VF-301"
+      ],
+      "inputs": [
+        "state machine: queued \u2192 pending \u2192 fulfilled/rejected/timed out.",
+        "Start in the repository root; Node LTS and Python 3.11+; install npm ci and .venv requirements as applicable."
+      ],
+      "outputs": [
+        "docs/phase-3/index.html"
+      ],
+      "steps": [
+        "Read handoff/BACKLOG.md VF-302 and handoff/AGENT_PROTOCOL.md; Build environment team exclusively owns version control.",
+        "Write a meaningful failing test; record whether its failure is environmental or behavioral before implementation.",
+        "standalone `docs/phase-3/index.html`; visual outbound/return paths, latency control, disconnect and failure injection, bounded trace.",
+        "change latency and deadline, dispatch multiple requests, force disconnect, then reconnect and retry. Check distinct correlated outcomes."
+      ],
+      "failure_cases": [
+        "paused animation/background tab does not invent successful replies",
+        "queue capacity is enforced and communicated"
+      ],
+      "checks": [
+        "demos"
+      ],
+      "manual_gates": [
+        "the graph communicates promises without teaching that messages execute synchronously.",
+        "Review task evidence against handoff/BACKLOG.md VF-302; automated checks alone do not prove live Windows/MCP/hardware/publication."
+      ],
+      "demo": "docs/phase-3/index.html",
+      "definition_of_done": "the graph communicates promises without teaching that messages execute synchronously."
+    },
+    {
+      "id": "VF-303",
+      "sprint": 3,
+      "phase": "3",
+      "title": "Telemetry transport boundary",
+      "objective": "loopback receiver, bounded message size/rate, health snapshot, disposal and bind-error handling.",
+      "prerequisites": [
+        "VF-300"
+      ],
+      "inputs": [
+        "versioned telemetry and OSC mapping from Capstone guide.",
+        "Start in the repository root; Node LTS and Python 3.11+; install npm ci and .venv requirements as applicable."
+      ],
+      "outputs": [
+        "src/telemetry.ts",
+        "src/shared/contracts.ts"
+      ],
+      "steps": [
+        "Read handoff/BACKLOG.md VF-303 and handoff/AGENT_PROTOCOL.md; Build environment team exclusively owns version control.",
+        "Write a meaningful failing test; record whether its failure is environmental or behavioral before implementation.",
+        "loopback receiver, bounded message size/rate, health snapshot, disposal and bind-error handling.",
+        "inject valid, invalid, oversized, stale, out-of-order, and malformed packets; simulate occupied ports; test cleanup/restart."
+      ],
+      "failure_cases": [
+        "UDP packet loss and lack of authentication are explicit",
+        "physical hardware is never shown healthy merely because a socket opened"
+      ],
+      "checks": [
+        "types",
+        "unit"
+      ],
+      "manual_gates": [
+        "fixtures exercise actual local transport as well as pure parsing.",
+        "Review task evidence against handoff/BACKLOG.md VF-303; automated checks alone do not prove live Windows/MCP/hardware/publication."
+      ],
+      "demo": "docs/phase-3/index.html",
+      "definition_of_done": "fixtures exercise actual local transport as well as pure parsing."
+    },
+    {
+      "id": "VF-400",
+      "sprint": 4,
+      "phase": "4",
+      "title": "Desktop dashboard and simulator",
+      "objective": "native dashboard with shadow position, confidence/health telemetry, source status and age; deterministic local producer; history bounds and retry affordance.",
+      "prerequisites": [
+        "VF-303"
+      ],
+      "inputs": [
+        "telemetry service and desktop UI design.",
+        "Start in the repository root; Node LTS and Python 3.11+; install npm ci and .venv requirements as applicable."
+      ],
+      "outputs": [
+        "src/renderer.ts",
+        "scripts/telemetry-simulator.ts",
+        "Projects/CAPSTONE_Plato_Dashboard_Electron/README.md"
+      ],
+      "steps": [
+        "Read handoff/BACKLOG.md VF-400 and handoff/AGENT_PROTOCOL.md; Build environment team exclusively owns version control.",
+        "Write a meaningful failing test; record whether its failure is environmental or behavioral before implementation.",
+        "native dashboard with shadow position, confidence/health telemetry, source status and age; deterministic local producer; history bounds and retry affordance.",
+        "simulator data traverses transport \u2192 Main validation \u2192 bridge \u2192 visible renderer. Stop producer and observe stale state; restart and recover."
+      ],
+      "failure_cases": [
+        "invalid data cannot refresh freshness or overwrite last valid values",
+        "disconnect preserves clearly labeled historical values"
+      ],
+      "checks": [
+        "types",
+        "unit",
+        "build"
+      ],
+      "manual_gates": [
+        "native launch and local end-to-end test evidence; no model-generated runtime code execution.",
+        "Review task evidence against handoff/BACKLOG.md VF-400; automated checks alone do not prove live Windows/MCP/hardware/publication."
+      ],
+      "demo": "docs/capstone/index.html",
+      "definition_of_done": "native launch and local end-to-end test evidence; no model-generated runtime code execution."
+    },
+    {
+      "id": "VF-401",
+      "sprint": 4,
+      "phase": "4",
+      "title": "TouchDesigner / Godot producer rehearsal",
+      "objective": "map normalized shadow coordinates and measured confidence/status to versioned telemetry; document units, frame timestamp, frequency and source identity.",
+      "prerequisites": [
+        "VF-400"
+      ],
+      "inputs": [
+        "OSC address/type tags and JSON schema, sample adapter instructions.",
+        "Start in the repository root; Node LTS and Python 3.11+; install npm ci and .venv requirements as applicable."
+      ],
+      "outputs": [
+        "Physical-pipeline-owner device/topology/calibration evidence"
+      ],
+      "steps": [
+        "Read handoff/BACKLOG.md VF-401 and handoff/AGENT_PROTOCOL.md; Build environment team exclusively owns version control.",
+        "Write a meaningful failing test; record whether its failure is environmental or behavioral before implementation.",
+        "map normalized shadow coordinates and measured confidence/status to versioned telemetry; document units, frame timestamp, frequency and source identity.",
+        "physical movement causes matching UI movement; unplug sensor, stall producer, send unknown schema version; confirm honest statuses and recovery."
+      ],
+      "failure_cases": [
+        "no hardware control/actuation",
+        "no claim of true hardware health when only transport data exists",
+        "UDP routing validated separately from TCP"
+      ],
+      "checks": [
+        "unit"
+      ],
+      "manual_gates": [
+        "physical demonstration evidence, owner, device details and network topology attached.",
+        "Review task evidence against handoff/BACKLOG.md VF-401; automated checks alone do not prove live Windows/MCP/hardware/publication."
+      ],
+      "demo": "docs/capstone/index.html",
+      "definition_of_done": "physical demonstration evidence, owner, device details and network topology attached."
+    },
+    {
+      "id": "VF-402",
+      "sprint": 4,
+      "phase": "4",
+      "title": "Public Capstone simulation",
+      "objective": "standalone `docs/capstone/index.html`, parameter controls, live simulated silhouette/telemetry, sensor failure and restoration.",
+      "prerequisites": [
+        "VF-400"
+      ],
+      "inputs": [
+        "physical-shadow concept, no proprietary original assets.",
+        "Start in the repository root; Node LTS and Python 3.11+; install npm ci and .venv requirements as applicable."
+      ],
+      "outputs": [
+        "docs/capstone/index.html"
+      ],
+      "steps": [
+        "Read handoff/BACKLOG.md VF-402 and handoff/AGENT_PROTOCOL.md; Build environment team exclusively owns version control.",
+        "Write a meaningful failing test; record whether its failure is environmental or behavioral before implementation.",
+        "standalone `docs/capstone/index.html`, parameter controls, live simulated silhouette/telemetry, sensor failure and restoration.",
+        "values react to controls; failure/stale states visible; all phase links work from a GitHub repository subpath."
+      ],
+      "failure_cases": [
+        "simulated data never presented as connected hardware",
+        "screen-reader summary conveys the canvas state"
+      ],
+      "checks": [
+        "demos"
+      ],
+      "manual_gates": [
+        "anonymous offline browser user can explore the complete pipeline.",
+        "Review task evidence against handoff/BACKLOG.md VF-402; automated checks alone do not prove live Windows/MCP/hardware/publication."
+      ],
+      "demo": "docs/capstone/index.html",
+      "definition_of_done": "anonymous offline browser user can explore the complete pipeline."
+    },
+    {
+      "id": "VF-403",
+      "sprint": 4,
+      "phase": "4",
+      "title": "Release and performance qualification",
+      "objective": "clean install, typed checks, tests, package and make; clean-machine install/start/uninstall; 4K interaction frame-time report with p50/p95 and DRS floor.",
+      "prerequisites": [
+        "VF-203",
+        "VF-401",
+        "VF-402"
+      ],
+      "inputs": [
+        "clean source bundle, exact Node/package versions, target Windows and GPU/monitor profile.",
+        "Start in the repository root; Node LTS and Python 3.11+; install npm ci and .venv requirements as applicable."
+      ],
+      "outputs": [
+        "Build-team Windows clean install/package/make and measured 4K performance report"
+      ],
+      "steps": [
+        "Read handoff/BACKLOG.md VF-403 and handoff/AGENT_PROTOCOL.md; Build environment team exclusively owns version control.",
+        "Write a meaningful failing test; record whether its failure is environmental or behavioral before implementation.",
+        "clean install, typed checks, tests, package and make; clean-machine install/start/uninstall; 4K interaction frame-time report with p50/p95 and DRS floor.",
+        "verify phase links at actual Pages subpath, accessibility/reduced motion, background resume, offline behavior, package manifest and signing."
+      ],
+      "failure_cases": [
+        "no universal FPS claim",
+        "benchmark records hardware, dimensions, DPR, browser, interaction, duration and any throttling"
+      ],
+      "checks": [
+        "types",
+        "unit",
+        "build",
+        "demos",
+        "notebooks"
+      ],
+      "manual_gates": [
+        "Build team signs off or records failed gate with owner; no implied publication from local files.",
+        "Review task evidence against handoff/BACKLOG.md VF-403; automated checks alone do not prove live Windows/MCP/hardware/publication."
+      ],
+      "demo": "docs/capstone/index.html",
+      "definition_of_done": "Build team signs off or records failed gate with owner; no implied publication from local files."
+    },
+    {
+      "id": "VF-404",
+      "sprint": 4,
+      "phase": "4",
+      "title": "Operations handoff and publication",
+      "objective": "source checksums, reproducible command log, known limits, rollback plan and ownership table. Build team imports source, selects branch `/docs`, publishes and records URL.",
+      "prerequisites": [
+        "VF-403"
+      ],
+      "inputs": [
+        "final source, validation, handoff checklist and attribution.",
+        "Start in the repository root; Node LTS and Python 3.11+; install npm ci and .venv requirements as applicable."
+      ],
+      "outputs": [
+        "handoff/DEVOPS_HANDOFF.md",
+        "handoff/VALIDATION.md",
+        "Build-team publication and rollback evidence"
+      ],
+      "steps": [
+        "Read handoff/BACKLOG.md VF-404 and handoff/AGENT_PROTOCOL.md; Build environment team exclusively owns version control.",
+        "Write a meaningful failing test; record whether its failure is environmental or behavioral before implementation.",
+        "source checksums, reproducible command log, known limits, rollback plan and ownership table. Build team imports source, selects branch `/docs`, publishes and records URL.",
+        "independent operator repeats startup, fault recovery, and restore using only the dossier. Verify release URL from outside development machine."
+      ],
+      "failure_cases": [
+        "no private notebook outputs, tokens, local profiles, dev servers or dependency folders in public artifact"
+      ],
+      "checks": [
+        "curriculum",
+        "types",
+        "unit",
+        "build",
+        "demos",
+        "notebooks"
+      ],
+      "manual_gates": [
+        "curriculum acceptance plus separately documented publication and Windows/hardware qualification. Development is not authorized to perform the team's VCS steps.",
+        "Review task evidence against handoff/BACKLOG.md VF-404; automated checks alone do not prove live Windows/MCP/hardware/publication."
+      ],
+      "demo": "docs/capstone/index.html",
+      "definition_of_done": "curriculum acceptance plus separately documented publication and Windows/hardware qualification. Development is not authorized to perform the team's VCS steps."
+    }
+  ]
+}
